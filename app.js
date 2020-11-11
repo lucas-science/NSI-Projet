@@ -20,4 +20,6 @@ mongoose.connect('mongodb+srv://ichat:LjfNhCj0YwwryZiF@cluster0.uzln9.mongodb.ne
 
 app.use('/api/auth', userRoutes);
 
+console.log('test')
+
 module.exports = app;
