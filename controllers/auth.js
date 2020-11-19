@@ -2,9 +2,13 @@ const jwt = require('jsonwebtoken');
 const secret = "clef-secret";
 
 
-exports.auth = (req, res, next) => {
-    const token = req.cookie.token;
-    console.log(token);
+const withAuth = function(req, res, next) {
+    const token =
+        req.body.token ||
+        req.query.token ||
+        req.headers['x-access-token'] ||
+        req.cookies.token;
+
     if (!token) {
         res.status(401).json({ error: "pas autorisé" });
     } else {
@@ -14,8 +18,9 @@ exports.auth = (req, res, next) => {
             } else {
                 req._id = decoded._id;
                 next();
-                console.log('tu as le droit')
             }
         });
     }
 }
+
+module.exports = withAuth;

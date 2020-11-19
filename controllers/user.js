@@ -20,7 +20,7 @@ exports.signup = (req, res, next) => {
 
 const secret = "clef-secret"
 
-exports.signin = (req, res, next) => {
+/*exports.signin = (req, res, next) => {
     User.findOne({ email: req.body.email })
         .then(user => {
             if (!user) {
@@ -31,12 +31,45 @@ exports.signin = (req, res, next) => {
                     if (!valid) {
                         return res.status(401).json({ error: "mot de passe incorrecte" })
                     }
-                    const token = jwt.sign({ userId: user._id }, secret, {
-                        expiresIn: '1h'
-                    });
-                    res.cookie('token', token, { httpOnly: true })
                 })
                 .catch(error => res.status(500).json({ error }));
         })
         .catch(error => res.status(500).json({ error }));
+}*/
+
+exports.signin = (req, res, next) => {
+    User.findOne({ email: req.body.email }, function(err, user) {
+        if (err) {
+            console.error(err);
+            res.status(500)
+                .json({
+                    error: 'Internal error please try again'
+                });
+        } else if (!user) {
+            res.status(401)
+                .json({
+                    error: 'Incorrect email or password'
+                });
+        } else {
+            bcrypt.compare(req.body.mdp, user.mdp, function(err, result) {
+                if (err) {
+                    console.error(err);
+                    res.status(500)
+                        .json({
+                            error: 'Internal error please try again'
+                        });
+                } else if (!result) {
+                    res.status(401)
+                        .json({
+                            error: 'Incorrect password'
+                        });
+                } else {
+                    const token = jwt.sign({ userId: user._id }, secret, {
+                        expiresIn: '1h'
+                    });
+                    return res.cookie('token', token, { httpOnly: true }).status(200).json({ message: 'nice' });
+                }
+            });
+        }
+    });
 }
