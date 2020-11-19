@@ -18,7 +18,7 @@ exports.signup = (req, res, next) => {
 }
 
 
-
+const secret = "clef-secret"
 
 exports.signin = (req, res, next) => {
     User.findOne({ email: req.body.email })
@@ -31,10 +31,10 @@ exports.signin = (req, res, next) => {
                     if (!valid) {
                         return res.status(401).json({ error: "mot de passe incorrecte" })
                     }
-                    res.status(200).json({
-                        userId: user._id,
-                        token: jwt.sign({ userId: user._id }, 'RANDOM_TOKEN_SECRET', { expiresIn: '24h' })
-                    })
+                    const token = jwt.sign({ userId: user._id }, secret, {
+                        expiresIn: '1h'
+                    });
+                    res.cookie('token', token, { httpOnly: true })
                 })
                 .catch(error => res.status(500).json({ error }));
         })
