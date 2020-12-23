@@ -23,6 +23,7 @@ export default class login extends Component {
       console.log("state login : ",this.state)
       fetch('http://localhost:4000/authentification/signin', {
         method: 'POST',
+        credentials: 'include',
         body: JSON.stringify({
           email:this.state.email,
           mdp:this.state.mdp

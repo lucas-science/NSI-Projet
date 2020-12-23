@@ -16,6 +16,7 @@ export default function withAuth(ComponentToProtect) {
         .then(res => {
             console.log(res)
           if (res.status === 200) {
+            console.log("les cookie sont la ")
             this.setState({ loading: false });
           } else {
             const error = new Error(res.error);

@@ -13,8 +13,13 @@ const authController = require('./controllers/auth');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cookieParser());
-app.use(cors());
 
+app.use(
+    cors({
+        origin: 'http://localhost:3000',
+        credentials: true
+    })
+);
 //connect DB
 mongoose.connect('mongodb+srv://ichat:LjfNhCj0YwwryZiF@cluster0.uzln9.mongodb.net/<dbname>?retryWrites=true&w=majority', {
         useCreateIndex: true,
@@ -31,7 +36,7 @@ app.post('/test', (req, res, next) => {
     console.log(req.body)
 })
 
-app.use('/auth', authController.withAuth, (req, res, next) => {
+app.get('/auth', authController.withAuth, (req, res, next) => {
     res.sendStatus(200);
 });
 module.exports = app;
