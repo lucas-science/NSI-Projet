@@ -22,16 +22,10 @@ export default class signup extends Component {
     onSubmit = (event) => {
       event.preventDefault();
       console.log("state signup : ",this.state);
-      /*axios.post('http://localhost:4000/authentification/signup',{
-        pseudo:this.state.pseudo,
-        email:this.state.email,
-        mdp:this.state.mdp,
-      })  
-      .then((value) => {
-        console.log(value);
-      })*/
+
       fetch('http://localhost:4000/authentification/signup', {
         method: 'POST',
+        credentials: 'include',
         body: JSON.stringify({
           pseudo:this.state.pseudo,
           email:this.state.email,
@@ -50,21 +44,6 @@ export default class signup extends Component {
         }
       })
 
-
-     /* .then(res => {
-        if (res.status === 200) {
-          this.props.history.push('/');
-          console.log("info envoyé")
-        } else {
-          const error = new Error(res.error);
-          throw error;
-        }
-      })
-      .catch(err => {
-        console.error(err);
-        alert('Error logging in please try again');
-      });
-      */
     }
   
     render() {
