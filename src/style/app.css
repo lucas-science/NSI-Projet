@@ -1,0 +1,82 @@
+body,
+html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.corps {
+    display: flex;
+}
+
+.colone-gauche {
+    background-color: beige;
+    width: 25%;
+    height: 100vh;
+}
+
+.add-friends {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.friend-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.friend {
+    background-color: darkgray;
+    padding: 0.1%;
+    margin-top: 15px;
+    width: 80%;
+}
+
+.colone-droite {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    height: 100vh;
+    background-color: burlywood;
+}
+
+.chat {
+    width: 100%;
+    height: 90vh;
+    background-color: cadetblue;
+}
+
+.message {
+    width: 100%;
+    height: 10vh;
+    background-color: crimson;
+}
+
+.forme-message {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 10vh;
+    width: 100%;
+}
+
+.message-envoye {
+    width: 10%;
+    padding: 0.25%;
+    margin-top: 15px;
+    background-color: rgb(29, 34, 43);
+    color: white;
+    border-radius: 15px;
+}
+
+.message-recu {
+    width: 10%;
+    padding: 0.25%;
+    margin-top: 20px;
+    background-color: rgb(55, 64, 82);
+    color: rgb(255, 255, 255);
+    border-radius: 15px;
+}

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { BrowserRouter, Route, Router, Link, Switch } from "react-router-dom"
 
 export default class signup extends Component {
     constructor(props) {
@@ -49,6 +50,16 @@ export default class signup extends Component {
     render() {
       return (
         <div>
+          <div className="nav-barre" id="nav-barre">
+            <div className="logo-parti">
+                <img className="logo" id="logo1" alt="logo" src="image/logo-ichat.png" alt="logo ichat"/>
+            </div>
+            <div class="bouton-parti ">
+                <a id="link1"><Link to="/app">Application</Link></a>
+                <a id="link2" ><Link to="/signup">Signin</Link></a>
+                <a id="link3"><Link to="/login">Login</Link></a>
+            </div>
+        </div>
           <form onSubmit={this.onSubmit}>
           <h1>Login Below!</h1>
           <input

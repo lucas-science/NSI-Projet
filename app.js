@@ -30,13 +30,12 @@ mongoose.connect('mongodb+srv://ichat:LjfNhCj0YwwryZiF@cluster0.uzln9.mongodb.ne
     .catch(() => console.log('Connexion à MongoDB échouée !'));
 
 
-
 app.use('/authentification', connexionRoutes);
 app.post('/test', (req, res, next) => {
     console.log(req.body)
 })
 
-app.get('/auth', authController.withAuth, (req, res, next) => {
+app.post('/auth', authController.withAuth, (req, res, next) => {
     res.sendStatus(200);
 });
 module.exports = app;

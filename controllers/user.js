@@ -37,7 +37,6 @@ exports.signin = (req, res, next) => {
                 .json({
                     error: 'Internal error please try again'
                 });
-
         } else if (!user) {
             res.status(402)
                 .json({

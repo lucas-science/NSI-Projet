@@ -12,7 +12,10 @@ export default function withAuth(ComponentToProtect) {
     }
 
     componentDidMount() {
-      fetch('http://localhost:4000/auth')
+      fetch('http://localhost:4000/auth',{
+        credentials: 'include', 
+        method: 'POST'
+      })
         .then(res => {
             console.log(res)
           if (res.status === 200) {

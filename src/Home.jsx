@@ -4,12 +4,22 @@ import imgpage4 from './image/img-page4.png';
 import imageprofil from './image/img-profil.jpg';
 import imagerocket from './image/rocket.png'
 import imgpage6 from './image/img-page6.png'
-
-import './Home.css';
+import { BrowserRouter, Route, Router, Link, Switch } from "react-router-dom"
+import './style/Home.css';
 
 function Home() {
   return (
     <div>
+        <div className="nav-barre" id="nav-barre">
+            <div className="logo-parti">
+                <img className="logo" id="logo1" alt="logo" src="image/logo-ichat.png" alt="logo ichat"/>
+            </div>
+            <div class="bouton-parti ">
+                <a id="link1"><Link to="/app">Application</Link></a>
+                <a id="link2" ><Link to="/signup">Signin</Link></a>
+                <a id="link3"><Link to="/login">Login</Link></a>
+            </div>
+        </div>
     <div className="home home1">
     <div className="texte-centre">
         <p className="garder_contact">Garder le contact</p>
