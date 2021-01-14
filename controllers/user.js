@@ -12,7 +12,11 @@ exports.signup = (req, res, next) => {
         const user = new User({
             pseudo: pseudo,
             email: email,
-            mdp: hash
+            mdp: hash,
+            friends: [{
+                user_id: "test",
+                _pseudo: "test"
+            }]
         });
         user.save()
             .then(() => {

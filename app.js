@@ -38,4 +38,9 @@ app.post('/test', (req, res, next) => {
 app.post('/auth', authController.withAuth, (req, res, next) => {
     res.sendStatus(200);
 });
+
+app.post('/app/newfriend', authController.withAuth, (req, res, next) => {
+    console.log(req.body)
+})
+
 module.exports = app;

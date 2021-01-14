@@ -64,7 +64,7 @@ html {
 }
 
 .message-envoye {
-    width: 10%;
+    width: 20%;
     padding: 0.25%;
     margin-top: 15px;
     background-color: rgb(29, 34, 43);
@@ -73,7 +73,7 @@ html {
 }
 
 .message-recu {
-    width: 10%;
+    width: 20%;
     padding: 0.25%;
     margin-top: 20px;
     background-color: rgb(55, 64, 82);
