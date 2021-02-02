@@ -4,6 +4,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
+Packages :
+
+```npm i express axios bcrypt body-parser cookie-pareser cors http jsonwebtoken mongoose mongoose-unique-validator nodemon```
+
 In the project directory, you can run:
 
 ### `npm start`
