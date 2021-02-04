@@ -3,6 +3,7 @@ import axios from 'axios';
 import { BrowserRouter, Route, Router, Link, Switch } from "react-router-dom"
 
 export default class login extends Component {
+      // création des states suivant
     constructor(props) {
       super(props)
       this.state = {
@@ -11,7 +12,7 @@ export default class login extends Component {
         message:''
       };
     }
-  
+    // ajout des changement lorsque le texte de l'input change
     handleInputChange = (event) => {
       const { value, name } = event.target;
       this.setState({
@@ -19,11 +20,13 @@ export default class login extends Component {
       });
     }
   
+    // lorsque le formulaire est submit, envoyer la requête POST suivante, qui envois les données
     onSubmit = (event) => {
       event.preventDefault();
       console.log("state login : ",this.state)
       fetch('http://localhost:4000/authentification/signin', {
         method: 'POST',
+        // credentials : include permet d'intégrer les cookie avec la requête
         credentials: 'include', 
         body: JSON.stringify({
           email:this.state.email,
@@ -35,11 +38,14 @@ export default class login extends Component {
       })
       .then(res => {
         if (res.status === 200) {
+          // s'il y a aucune erreur, renvoyer vers l'acceuil
           this.props.history.push('/');
         }if (res.status === 401){
+          // si erreur code est 401, renvoyer ce message
           this.setState({message:'Mot de passee incorrecte'});
         } 
         else {
+          // sinon, renvoyer ce message
           this.setState({message:'Mot de passe ou email incorrecte'});
         }
       })

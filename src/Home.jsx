@@ -7,6 +7,7 @@ import imgpage6 from './image/img-page6.png'
 import { BrowserRouter, Route, Router, Link, Switch } from "react-router-dom"
 import './style/Home.css';
 
+// page de présentation du projet, le style n'est pas a jour
 function Home() {
   return (
     <div>

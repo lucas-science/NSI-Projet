@@ -5,6 +5,7 @@ import './style/index.css';
 import App from './App.jsx';
 import reportWebVitals from './reportWebVitals';
 
+// rendu des composants react dans le fichier HTML
 ReactDOM.render( <
     React.StrictMode >
     <

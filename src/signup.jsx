@@ -3,6 +3,7 @@ import axios from 'axios';
 import { BrowserRouter, Route, Router, Link, Switch } from "react-router-dom"
 
 export default class signup extends Component {
+    // création des states suivant
     constructor(props) {
       super(props)
       this.state = {
@@ -12,20 +13,21 @@ export default class signup extends Component {
         message:''
       };
     }
-  
+    // ajout des changement lorsque le texte de l'input change
     handleInputChange = (event) => {
       const { value, name } = event.target;
       this.setState({
         [name]: value
       });
     }
-  
+    // quand bouton submit pressé, envoyé une requête POST au serveur pour insérer le nouvel utilisateur dans la base de donnée
     onSubmit = (event) => {
       event.preventDefault();
       console.log("state signup : ",this.state);
 
       fetch('http://localhost:4000/authentification/signup', {
         method: 'POST',
+        // credentials : include permet d'intégrer les cookie avec la requête
         credentials: 'include',
         body: JSON.stringify({
           pseudo:this.state.pseudo,
@@ -38,9 +40,11 @@ export default class signup extends Component {
       })
       .then((value) => {
         if (value.status === 200) {
+          // s'il y a eu aucune erreur redirigé à l'acceuil
           this.props.history.push('/');
           console.log("info envoyé");
         } else {
+          // s'il y a eu une erreur, renvoyer le message suivant
           this.setState({message:'Pseudo ou email déjà utilisé'});
         }
       })
@@ -55,6 +59,7 @@ export default class signup extends Component {
                 <img className="logo" id="logo1" alt="logo" src="image/logo-ichat.png" alt="logo ichat"/>
             </div>
             <div class="bouton-parti ">
+              {/*"Link" permet de faire une lien vers un chemin précis*/}
                 <a id="link1"><Link to="/app">Application</Link></a>
                 <a id="link2" ><Link to="/signup">Signin</Link></a>
                 <a id="link3"><Link to="/login">Login</Link></a>
