@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import '../style/app.css'
 
+
 export default class FriendPannel extends Component {
     // création du State "friend"
     constructor(props) {
         super(props)
         this.state = {
-          friend : ''
+          friend : '',
+          message : '',
+          amislist: [{_id:0, _pseudo:""}]
         };
       }
     
@@ -37,14 +40,36 @@ export default class FriendPannel extends Component {
         // renvois message de réussite ou non
         .then(res => {
           if (res.status === 200) {
-            console.log("nouvel amis");
-          } else{
+            this.setState({message: ""})
+          } else if(res.status === 400){
+            this.setState({message : "l'utilisateur rechercher n'existe pas"})
+          }
+          else{
               console.log("erreur")
           }
         })
       }
+      componentDidMount(){
+        fetch('http://localhost:4000/app/friendlist', {
+          method: 'GET',
+          // credentials : include permet d'intégrer les cookie avec la requête
+          credentials: 'include', 
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          }
+        })
+        .then(response => response.json())
+        .then(response => {
+          console.log(response)
+          this.setState({amislist:response})
+          console.log("state", this.state.amislist)
+        })
+      }
+      
 
     render() {
+      const {message} = this.state
       return (
         <div className="colone-gauche">
         <div className="add-friends">
@@ -58,18 +83,15 @@ export default class FriendPannel extends Component {
                 required
                 />
                 <input type="submit" value="Submit"/>
+                <p>{message}</p>
             </form>
         </div>
         <div className="friend-list">
+          {this.state.amislist.map((amis)=>(
             <div className="friend">
-                <p>Friend name</p>
+              <p>{amis._pseudo}</p>
             </div>
-            <div className="friend">
-                <p>Friend name</p>
-            </div>
-            <div className="friend">
-                <p>Friend name</p>
-            </div>
+          ))}
         </div>
     </div>
       ); 

@@ -16,10 +16,10 @@ exports.signup = (req, res, next) => {
             email: email,
             mdp: hash,
             //test
-            friends: [{
+            /*friends: [{
                 user_id: "test",
                 _pseudo: "test"
-            }]
+            }]*/
         });
         user.save()
             // crétion de la session qui exprire dans 1h

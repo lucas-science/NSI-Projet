@@ -6,12 +6,15 @@ const app = express();
 const mongoose = require('mongoose');
 const cors = require('cors')
 const User = require('./models/user');
+const jwt = require('jsonwebtoken');
 
 // routage pour le chemin /signup et /signin
 const connexionRoutes = require('./routes/user');
 
 // fonction pour vérifier si la personne est connecté
 const authController = require('./controllers/auth');
+const user = require('./models/user');
+const { decode } = require('punycode');
 
 // initialisation body parser pour récupérer donné au format json
 app.use(bodyParser.json());
@@ -52,23 +55,74 @@ app.post('/auth', authController.withAuth, (req, res, next) => {
 });
 
 // test d'ajout d'amis dans la base de donné pour un utilisateur précis
+const secret = "clef-secret";
+
+app.use('/app/friendlist', authController.withAuth, (req, res, next) => {
+    const token =
+        req.body.token ||
+        req.query.token ||
+        req.headers['x-access-token'] ||
+        req.cookies.token;
+
+    jwt.verify(token, secret, function(err, decoded) {
+        if (err) {
+            res.status(401).send({ error: "invalide token" });
+        } else {
+            console.log("decoded id : ", decoded)
+                // si les cookie sont validé, passé à la prochaine fonction grâce à "next()"
+            User.findOne({ _id: decoded.userId }, function(err, docs) {
+                if (err) {
+                    res.status(401).send({ error })
+                } else {
+                    console.log("la", docs.friends)
+                    res.json(docs.friends)
+                }
+            });
+        }
+    });
+});
+
 app.post('/app/newfriend', authController.withAuth, (req, res, next) => {
     console.log("demande d'amis à " + req.body.new_friend)
+    const token =
+        req.body.token ||
+        req.query.token ||
+        req.headers['x-access-token'] ||
+        req.cookies.token;
 
-    User.updateOne({
-        _id: "60046c3664d2b733b87fe5fd"
-    }, {
-        $push: {
-            friends: {
-                _id: req.body.new_friend,
-                _pseudo: req.body.new_friend
-            }
-        }
-    }, function(err, docs) {
+    User.findOne({ pseudo: req.body.new_friend }, function(err, docs) {
+
         if (err) {
             console.log(err)
+        } else if (docs == null) {
+            res.status(400).send({ error: "introuvable" });
         } else {
-            console.log("docs update : ", docs)
+            console.log("user findone", docs)
+            jwt.verify(token, secret, function(err, decoded) {
+                if (err) {
+                    res.status(401).send({ error: "invalide token" });
+                } else {
+                    // si les cookie sont validé, passé à la prochaine fonction grâce à "next()"
+                    console.log('id', decoded.userId)
+                    User.updateOne({
+                        _id: decoded.userId
+                    }, {
+                        $push: {
+                            friends: {
+                                _id: docs._id,
+                                _pseudo: req.body.new_friend
+                            }
+                        }
+                    }, function(err, docs) {
+                        if (err) {
+                            console.log(err)
+                        } else {
+                            console.log("docs update : ", docs)
+                            res.status(200).send({ message: "demande d'amis envoyé" })
+                        }
+                    })
+                }
+            });
         }
     })
 })
