@@ -29,10 +29,12 @@ html {
 }
 
 .friend {
-    background-color: darkgray;
+    background-color: #4b8ef2bd;
     padding: 0.1%;
     margin-top: 15px;
-    width: 80%;
+    width: 100px;
+    display: flex;
+    justify-content: center;
 }
 
 .colone-droite {

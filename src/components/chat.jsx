@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import '../style/app.css'
 import io from "socket.io-client";
-const ENDPOINT = "http://localhost:4000";
-const socket = io(ENDPOINT, {
-  withCredentials: true
-})
+import { withRouter } from "react-router-dom";
+
 
 export default class Chat extends Component {
   // création du state "message"
@@ -22,15 +20,13 @@ export default class Chat extends Component {
         });
       }
       // test de socket.io mais pas encore fonctionnel
-      onSubmit = (event) => {
-        socket.emit("chatMessage",{message:this.state.message})  
-        console.log(this.state.message)
-      } 
+
 
     render() {
       return (
         <div className="colone-droite">
-            <div className="chat">
+          {/*
+                      <div className="chat">
                 <div className="message-envoye">
                     <p>Message envoyé</p>
                     <p>Mesage</p>
@@ -47,6 +43,9 @@ export default class Chat extends Component {
                     <p>Message reçu</p>
                     <p>Mesage</p>
                 </div>
+            </div>*/}
+            <div className="chat">
+              <p>{this.props.valeur}</p>
             </div>
             
             <div className="message">

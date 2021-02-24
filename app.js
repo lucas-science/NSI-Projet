@@ -81,7 +81,9 @@ app.use('/app/friendlist', authController.withAuth, (req, res, next) => {
         }
     });
 });
+app.post('/app/groupe', authController.withAuth, (req, res, next) => {
 
+})
 app.post('/app/newfriend', authController.withAuth, (req, res, next) => {
     console.log("demande d'amis à " + req.body.new_friend)
     const token =

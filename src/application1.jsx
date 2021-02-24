@@ -1,15 +1,23 @@
 import React, { Component } from 'react';
-import '../style/app.css'
+import { BrowserRouter, Route, Router, Link, Switch } from "react-router-dom"
+import './style/app.css';
+import Chat from './components/chat';
+import { withRouter } from "react-router-dom";
 
 
-export default class FriendPannel extends Component {
-    // création du State "friend"
-    constructor(props) {
+
+
+
+export default class Application1 extends Component {
+    
+      // création du State "friend"
+      constructor(props) {
         super(props)
         this.state = {
           friend : '',
           message : '',
-          amislist: [{_id:0, _pseudo:""}]
+          amislist: [{_id:0, _pseudo:""}],
+          room:''
         };
       }
     
@@ -66,13 +74,14 @@ export default class FriendPannel extends Component {
           console.log("state", this.state.amislist)
         })
       }
-      
+
 
     render() {
       const {message} = this.state
       return (
+      <div className="corps">
         <div className="colone-gauche">
-        <div className="add-friends">
+          <div className="add-friends">
             <form onSubmit={this.onSubmit}>
                 <input 
                 name="friend"
@@ -85,14 +94,17 @@ export default class FriendPannel extends Component {
                 <input type="submit" value="Submit"/>
                 <p>{message}</p>
             </form>
-        </div>
+          </div>
         <div className="friend-list">
           {this.state.amislist.map((amis)=>(
-            <div className="friend">
-              <p>{amis._pseudo}</p>
-            </div>
+            <Link to={"/app2/"+amis._id} >
+                <div className="friend" name={amis._pseudo}>
+                    <p>{amis._pseudo}</p>
+                </div>
+            </Link>
           ))}
         </div>
+      </div>
     </div>
       ); 
     }
