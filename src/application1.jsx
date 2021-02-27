@@ -51,8 +51,9 @@ export default class Application1 extends Component {
             this.setState({message: ""})
           } else if(res.status === 400){
             this.setState({message : "l'utilisateur rechercher n'existe pas"})
-          }
-          else{
+          } else if(res.status === 402){
+            this.setState({message: " vous avez déja cette utilisateur en amis"})
+          } else{
               console.log("erreur")
           }
         })

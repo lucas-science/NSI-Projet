@@ -16,7 +16,7 @@ function Home() {
                 <img className="logo" id="logo1" alt="logo" src="image/logo-ichat.png" alt="logo ichat"/>
             </div>
             <div class="bouton-parti ">
-                <a id="link1"><Link to="/app">Application</Link></a>
+                <a id="link1"><Link to="/friendlist">Application</Link></a>
                 <a id="link2" ><Link to="/signup">Signin</Link></a>
                 <a id="link3"><Link to="/login">Login</Link></a>
             </div>

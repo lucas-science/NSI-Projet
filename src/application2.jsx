@@ -74,13 +74,7 @@ export default class Application2 extends Component {
 
         })
       }
-/*
-      room = (event) => {
-        console.log(event.target.name)
-        this.setState({room:event.target.name})
-        console.log(this.state)
-      }
-*/
+
     render() {
       const {message} = this.state
       const { id } = this.props.match.params;
@@ -108,7 +102,7 @@ export default class Application2 extends Component {
                     <p>{amis._pseudo}</p>
                 </div>
             </Link>
-          ))}
+          ))} 
         </div>
       </div>
       <Chat valeur={id}/>

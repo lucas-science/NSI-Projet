@@ -9,7 +9,8 @@ export default class Chat extends Component {
     constructor(props) {
         super(props)
         this.state = {
-          message : ''
+          message : '',
+          groupetext:[{_id:0, text:"", author:""}]
         };
       }
       // ajout des changement lorsque le texte de l'input change
@@ -19,31 +20,33 @@ export default class Chat extends Component {
           [name]: value
         });
       }
-      // test de socket.io mais pas encore fonctionnel
-
+      componentDidMount(){
+        fetch('http://localhost:4000/app/groupechatlist', {
+          method: 'GET',
+          // credentials : include permet d'intégrer les cookie avec la requête
+          credentials: 'include', 
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          }
+        })
+        .then(response => response.json())
+        .then(response => {
+          this.setState({groupetext:response})
+        })
+      }
 
     render() {
       return (
         <div className="colone-droite">
-          {/*
-                      <div className="chat">
+            <div className="chat">
+              {this.state.groupetext.map((mess)=>(
                 <div className="message-envoye">
-                    <p>Message envoyé</p>
-                    <p>Mesage</p>
+                  <p>{mess.author}</p>
+                  <p>{mess.text}</p>
                 </div>
-                <div className="message-recu">
-                    <p>Message reçu</p>
-                    <p>Mesage</p>
-                </div>
-                <div className="message-envoye">
-                    <p >Message envoyé</p>
-                    <p>Mesage</p>
-                </div>
-                <div className="message-recu">
-                    <p>Message reçu</p>
-                    <p>Mesage</p>
-                </div>
-            </div>*/}
+              ))}
+            </div>
             <div className="chat">
               <p>{this.props.valeur}</p>
             </div>
