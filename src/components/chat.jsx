@@ -10,6 +10,7 @@ export default class Chat extends Component {
         super(props)
         this.state = {
           message : '',
+          friendid:'',
           groupetext:[{_id:0, text:"", author:""}]
         };
       }
@@ -21,10 +22,14 @@ export default class Chat extends Component {
         });
       }
       componentDidMount(){
+        this.setState({friendid:this.props.valeur})
         fetch('http://localhost:4000/app/groupechatlist', {
-          method: 'GET',
+          method: 'POST',
           // credentials : include permet d'intégrer les cookie avec la requête
           credentials: 'include', 
+          body: JSON.stringify({
+            friendID: this.props.valeur
+          }),
           headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json'
@@ -32,13 +37,37 @@ export default class Chat extends Component {
         })
         .then(response => response.json())
         .then(response => {
-          this.setState({groupetext:response})
+          this.setState({groupetext:response[0].message})
+          console.log(response[0].message)
         })
+      }
+      componentDidUpdate(){
+        if(this.state.friendid !== this.props.valeur){
+          this.setState({friendid:this.props.valeur})
+          fetch('http://localhost:4000/app/groupechatlist', {
+            method: 'POST',
+            credentials: 'include', 
+            body: JSON.stringify({
+              friendID: this.props.valeur
+            }),
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+            }
+          })
+          .then(response => response.json())
+          .then(response => {
+            this.setState({groupetext:response[0].message})
+            console.log(response[0].message)
+          })
+        }
       }
 
     render() {
       return (
         <div className="colone-droite">
+          <p>{this.props.valeur}</p>
+          <div className="chat">
             <div className="chat">
               {this.state.groupetext.map((mess)=>(
                 <div className="message-envoye">
@@ -47,8 +76,6 @@ export default class Chat extends Component {
                 </div>
               ))}
             </div>
-            <div className="chat">
-              <p>{this.props.valeur}</p>
             </div>
             
             <div className="message">

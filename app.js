@@ -75,7 +75,6 @@ app.use('/app/friendlist', authController.withAuth, (req, res, next) => {
                 if (err) {
                     res.status(401).send({ error })
                 } else {
-                    console.log("la", docs.friends)
                     res.json(docs.friends)
                 }
             });
@@ -95,13 +94,13 @@ app.use('/app/groupechatlist', authController.withAuth, (req, res, next) => {
         } else {
             console.log("decoded id : ", decoded)
                 // si les cookie sont validé, passé à la prochaine fonction grâce à "next()"
-            Groupe.findOne({ "membres._id": "6021912f80f9745ca8c30870" }, function(err, docs) {
+            Groupe.find({ $and: [{ "membres._id": decoded.userId }, { "membres._id": req.body.friendID }] }, function(err, docs) {
                 if (err) {
                     console.log("problem is here")
                     res.status(401).send({ error })
                 } else {
-                    console.log("le groupe : ", docs.message)
-                    res.json(docs.message)
+                    console.log("le groupe : ", docs)
+                    res.json(docs)
                 }
             })
         }
