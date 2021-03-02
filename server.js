@@ -5,15 +5,14 @@ const app = require('./app');
 // création du serveur express.js
 app.set('port', process.env.PORT || 4000);
 const server = http.createServer(app);
+const socketio = require('socket.io');
 
-const io = require("socket.io")(server, {
+const io = socketio(server, {
     cors: {
-        origin: "https://localhost:3000",
-        methods: ["GET", "POST"],
-        credentials: true
+        origin: "http://localhost:3000",
+        methods: ["GET", "POST"]
     }
-});
-
+})
 
 
 // 1er essaie de l'utilisation de socket.io pas encore fonctionnel
@@ -24,11 +23,8 @@ io.on("connection", (socket) => {
         console.log("Client disconnected");
     })
     socket.on("message", (data) => {
-        console.log(data.message)
+        console.log(data)
     })
 
-    socket.on('chatMessage', (msg) => {
-        console.log(message)
-    })
 })
 server.listen(process.env.PORT || 4000);

@@ -15,8 +15,7 @@ export default class Application2 extends Component {
         this.state = {
           friend : '',
           message : '',
-          amislist: [{_id:0, _pseudo:""}],
-          room:''
+          amislist: [{_id:0, _pseudo:""}]
         };
       }
     

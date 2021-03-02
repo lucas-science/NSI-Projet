@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import '../style/app.css'
-import io from "socket.io-client";
+import { io } from "socket.io-client";
+
 import { withRouter } from "react-router-dom";
 
-
+const socket = io('http://localhost:4000');
 export default class Chat extends Component {
   // création du state "message"
     constructor(props) {
@@ -61,6 +62,9 @@ export default class Chat extends Component {
             console.log(response[0].message)
           })
         }
+      }
+      onSubmit(){
+        socket.emit("message", "SALUTTTTT")
       }
 
     render() {

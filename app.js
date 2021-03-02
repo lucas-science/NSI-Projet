@@ -69,8 +69,8 @@ app.use('/app/friendlist', authController.withAuth, (req, res, next) => {
         if (err) {
             res.status(401).send({ error: "invalide token" });
         } else {
-            console.log("decoded id : ", decoded)
-                // si les cookie sont validé, passé à la prochaine fonction grâce à "next()"
+            //console.log("decoded id : ", decoded)
+            // si les cookie sont validé, passé à la prochaine fonction grâce à "next()"
             User.findOne({ _id: decoded.userId }, function(err, docs) {
                 if (err) {
                     res.status(401).send({ error })
@@ -92,14 +92,14 @@ app.use('/app/groupechatlist', authController.withAuth, (req, res, next) => {
         if (err) {
             res.status(401).send({ error: "invalide token" });
         } else {
-            console.log("decoded id : ", decoded)
-                // si les cookie sont validé, passé à la prochaine fonction grâce à "next()"
+            //console.log("decoded id : ", decoded)
+            // si les cookie sont validé, passé à la prochaine fonction grâce à "next()"
             Groupe.find({ $and: [{ "membres._id": decoded.userId }, { "membres._id": req.body.friendID }] }, function(err, docs) {
                 if (err) {
                     console.log("problem is here")
                     res.status(401).send({ error })
                 } else {
-                    console.log("le groupe : ", docs)
+                    //console.log("le groupe : ", docs)
                     res.json(docs)
                 }
             })
@@ -123,7 +123,7 @@ app.post('/app/newfriend', authController.withAuth, (req, res, next) => {
         } else if (docs == null) {
             res.status(400).send({ error: "introuvable" });
         } else {
-            console.log("user findone", docs)
+            //console.log("user findone", docs)
             const friendID = docs._id
             jwt.verify(token, secret, function(err, decoded) {
                 if (err) {
@@ -147,7 +147,7 @@ app.post('/app/newfriend', authController.withAuth, (req, res, next) => {
                                 if (err) {
                                     console.log(err)
                                 } else {
-                                    console.log("docs1 update : ", docs)
+                                    //console.log("docs1 update : ", docs)
                                     User.findOne({ _id: userID }, function(err, docs) {
                                         if (err) {
                                             console.log(err)
