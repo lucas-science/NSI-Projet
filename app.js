@@ -58,6 +58,30 @@ app.post('/auth', authController.withAuth, (req, res, next) => {
 // test d'ajout d'amis dans la base de donné pour un utilisateur précis
 const secret = "clef-secret";
 
+app.use('/app/getFriendName', authController.withAuth, (req, res, next) => {
+    const token =
+        req.body.token ||
+        req.query.token ||
+        req.headers['x-access-token'] ||
+        req.cookies.token;
+
+    jwt.verify(token, secret, function(err, decoded) {
+        if (err) {
+            res.status(401).send({ error: "invalide token" });
+        } else {
+            //console.log("decoded id : ", decoded)
+            // si les cookie sont validé, passé à la prochaine fonction grâce à "next()"
+            User.findOne({ _id: req.body.name }, function(err, docs) {
+                if (err) {
+                    res.status(401).send({ error })
+                } else {
+                    res.json(docs.pseudo)
+                }
+            });
+        }
+    });
+})
+
 app.use('/app/friendlist', authController.withAuth, (req, res, next) => {
     const token =
         req.body.token ||

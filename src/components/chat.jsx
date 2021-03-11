@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import '../style/app.css'
 import { io } from "socket.io-client"; 
-
 import { withRouter } from "react-router-dom";
+import FriendNom from './friend_nom'
 
 const socket = io('http://localhost:4000');
 export default class Chat extends Component {
@@ -110,7 +110,7 @@ export default class Chat extends Component {
         this.setState({change:false})
         return(
           <div className="colone-droite">
-          <p>{this.props.nom}</p>
+          <FriendNom id={this.props.valeur}/>
           <div className="chat">
             <div className="chat">
               {this.state.groupetext.map((mess)=>(
@@ -139,7 +139,7 @@ export default class Chat extends Component {
       } else{
       return (
         <div className="colone-droite">
-          <p>{this.props.nom}</p>
+          <FriendNom id={this.props.valeur}/>
           <div className="chat">
             <div className="chat">
               {this.state.groupetext.map((mess)=>(
