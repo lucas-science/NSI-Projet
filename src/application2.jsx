@@ -15,7 +15,8 @@ export default class Application2 extends Component {
         this.state = {
           friend : '',
           message : '',
-          amislist: [{_id:0, _pseudo:""}]
+          amislist: [{_id:0, _pseudo:""}],
+          user_nom : ''
         };
       }
     
@@ -67,10 +68,10 @@ export default class Application2 extends Component {
         })
         .then(response => response.json())
         .then(response => {
-          console.log(response)
-          this.setState({amislist:response})
-          console.log("state", this.state.amislist)
-
+          //console.log(response)
+          this.setState({amislist:response.friends})
+          this.setState({user_nom:response.pseudo})
+          //console.log("state", this.state.amislist, this.state.user_nom)
         })
       }
 
@@ -104,7 +105,7 @@ export default class Application2 extends Component {
           ))} 
         </div>
       </div>
-      <Chat valeur={id}/>
+      <Chat valeur={id} nom={this.state.user_nom}/>
     </div>
       ); 
     }

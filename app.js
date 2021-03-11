@@ -75,13 +75,39 @@ app.use('/app/friendlist', authController.withAuth, (req, res, next) => {
                 if (err) {
                     res.status(401).send({ error })
                 } else {
-                    res.json(docs.friends)
+                    res.json(docs)
                 }
             });
         }
     });
 });
-app.use('/app/groupechatlist', authController.withAuth, (req, res, next) => {
+
+app.use('/app/getgroupeid', authController.withAuth, (req, res, next) => {
+    const token =
+        req.body.token ||
+        req.query.token ||
+        req.headers['x-access-token'] ||
+        req.cookies.token;
+
+    jwt.verify(token, secret, function(err, decoded) {
+        if (err) {
+            res.status(401).send({ error: "invalide token" });
+        } else {
+            //console.log("decoded id : ", decoded)
+            // si les cookie sont validé, passé à la prochaine fonction grâce à "next()"
+            Groupe.find({ $and: [{ "membres._id": decoded.userId }, { "membres._id": req.body.friendID }] }, function(err, docs) {
+                if (err) {
+                    console.log("problem is here")
+                    res.status(401).send({ error })
+                } else {
+                    //console.log("le groupe : ", docs)
+                    res.json(docs)
+                }
+            })
+        }
+    });
+})
+app.use('/app/getgroupechatlist', authController.withAuth, (req, res, next) => {
     const token =
         req.body.token ||
         req.query.token ||
@@ -107,7 +133,31 @@ app.use('/app/groupechatlist', authController.withAuth, (req, res, next) => {
     });
 })
 
+app.use('/app/getname', authController.withAuth, (req, res, next) => {
+    const token =
+        req.body.token ||
+        req.query.token ||
+        req.headers['x-access-token'] ||
+        req.cookies.token;
 
+    jwt.verify(token, secret, function(err, decoded) {
+        if (err) {
+            res.status(401).send({ error: "invalide token" });
+        } else {
+            //console.log("decoded id : ", decoded)
+            // si les cookie sont validé, passé à la prochaine fonction grâce à "next()"
+            User.find({ _id: decoded.userId }, function(err, docs) {
+                if (err) {
+                    console.log(err)
+                } else if (docs == null) {
+                    res.status(400).send({ error: "introuvable" });
+                } else {
+                    res.json(docs.pseudo)
+                }
+            })
+        }
+    });
+})
 app.post('/app/newfriend', authController.withAuth, (req, res, next) => {
     console.log("demande d'amis à " + req.body.new_friend)
     const token =

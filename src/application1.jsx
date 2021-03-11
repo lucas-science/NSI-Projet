@@ -71,7 +71,7 @@ export default class Application1 extends Component {
         .then(response => response.json())
         .then(response => {
           console.log(response)
-          this.setState({amislist:response})
+          this.setState({amislist:response.friends})
           console.log("state", this.state.amislist)
         })
       }

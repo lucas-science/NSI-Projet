@@ -12,7 +12,9 @@ export default class Chat extends Component {
         this.state = {
           message : '',
           friendid:'',
-          groupetext:[{_id:0, text:"", author:""}]
+          groupetext:[{_id:0, text:"", author:""}],
+          room:'',
+          user_nom:''
         };
       }
       // ajout des changement lorsque le texte de l'input change
@@ -24,7 +26,8 @@ export default class Chat extends Component {
       }
       componentDidMount(){
         this.setState({friendid:this.props.valeur})
-        fetch('http://localhost:4000/app/groupechatlist', {
+        this.setState({user_nom:this.props.nom})
+        fetch('http://localhost:4000/app/getgroupechatlist', {
           method: 'POST',
           // credentials : include permet d'intégrer les cookie avec la requête
           credentials: 'include', 
@@ -39,13 +42,37 @@ export default class Chat extends Component {
         .then(response => response.json())
         .then(response => {
           this.setState({groupetext:response[0].message})
-          console.log(response[0].message)
+          //console.log(response[0].message)
+          this.setState({room:response[0]._id})
+          //console.log(this.state.room)
+          socket.emit('joinRoom', this.state.room)
+        })
+      }
+
+      componentDidMount(){
+        socket.on('message', message =>{
+          console.log(message)
+          let {groupetext} = this.state
+          groupetext.push(message)
+          console.log(groupetext)
+        })
+        socket.on('info', message =>{
+          console.log(message)
         })
       }
       componentDidUpdate(){
+        socket.on('message', message =>{
+          console.log(message)
+          let {groupetext} = this.state
+          groupetext.push(message)
+          console.log(groupetext)
+        })
+      }
+      
+      componentDidUpdate(){
         if(this.state.friendid !== this.props.valeur){
           this.setState({friendid:this.props.valeur})
-          fetch('http://localhost:4000/app/groupechatlist', {
+          fetch('http://localhost:4000/app/getgroupechatlist', {
             method: 'POST',
             credentials: 'include', 
             body: JSON.stringify({
@@ -59,18 +86,26 @@ export default class Chat extends Component {
           .then(response => response.json())
           .then(response => {
             this.setState({groupetext:response[0].message})
-            console.log(response[0].message)
+            //console.log(response[0].message)
+            this.setState({room:response[0]._id})
+            //console.log(this.state.room) 
+            socket.emit('joinRoom', this.state.room)
           })
         }
       }
-      onSubmit(){
-        socket.emit("message", "SALUTTTTT")
+      onSubmit = () => {
+        socket.emit("sendmessage", {
+          message:this.state.message,
+          author:this.props.nom,
+          room:this.state.room
+        })
+        this.setState({message:''})
       }
 
     render() {
       return (
         <div className="colone-droite">
-          <p>{this.props.valeur}</p>
+          <p>{this.props.nom}</p>
           <div className="chat">
             <div className="chat">
               {this.state.groupetext.map((mess)=>(
@@ -81,9 +116,8 @@ export default class Chat extends Component {
               ))}
             </div>
             </div>
-            
             <div className="message">
-            <form className="forme-message" onSubmit={this.onSubmit}>
+            <div className="forme-message">
                     <input 
                     name="message"
                     type="text" 
@@ -92,8 +126,8 @@ export default class Chat extends Component {
                     onChange={this.handleInputChange}
                     required
                     />
-                    <input type="submit" value="Submit"/>
-                </form>
+                    <input type="submit" value="Submit" onClick={this.onSubmit}/>
+                </div>
             </div>
         </div>
       ); 
