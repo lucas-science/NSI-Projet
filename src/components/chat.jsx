@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../style/app.css'
-import { io } from "socket.io-client";
+import { io } from "socket.io-client"; 
 
 import { withRouter } from "react-router-dom";
 
