@@ -14,7 +14,8 @@ export default class Chat extends Component {
           friendid:'',
           groupetext:[{_id:0, text:"", author:""}],
           room:'',
-          user_nom:''
+          user_nom:'',
+          change:false
         };
       }
       // ajout des changement lorsque le texte de l'input change
@@ -55,6 +56,7 @@ export default class Chat extends Component {
           let {groupetext} = this.state
           groupetext.push(message)
           console.log(groupetext)
+          this.setState({change:true})
         })
         socket.on('info', message =>{
           console.log(message)
@@ -66,6 +68,7 @@ export default class Chat extends Component {
           let {groupetext} = this.state
           groupetext.push(message)
           console.log(groupetext)
+          this.setState({change:true})
         })
       }
       
@@ -103,6 +106,37 @@ export default class Chat extends Component {
       }
 
     render() {
+      if(this.state.change === true){
+        this.setState({change:false})
+        return(
+          <div className="colone-droite">
+          <p>{this.props.nom}</p>
+          <div className="chat">
+            <div className="chat">
+              {this.state.groupetext.map((mess)=>(
+                <div className="message-envoye">
+                  <p>{mess.author}</p>
+                  <p>{mess.text}</p>
+                </div>
+              ))}
+            </div>
+            </div>
+            <div className="message">
+                <div className="forme-message">
+                    <input 
+                    name="message"
+                    type="text" 
+                    placeholder="type your message"
+                    value={this.state.message}
+                    onChange={this.handleInputChange}
+                    required
+                    />
+                    <input type="submit" value="Submit" onClick={this.onSubmit}/>
+                </div>
+            </div>
+        </div>
+        )
+      } else{
       return (
         <div className="colone-droite">
           <p>{this.props.nom}</p>
@@ -117,7 +151,7 @@ export default class Chat extends Component {
             </div>
             </div>
             <div className="message">
-            <div className="forme-message">
+                <div className="forme-message">
                     <input 
                     name="message"
                     type="text" 
@@ -131,5 +165,6 @@ export default class Chat extends Component {
             </div>
         </div>
       ); 
+      }
     }
   }
