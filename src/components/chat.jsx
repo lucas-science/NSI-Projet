@@ -50,28 +50,6 @@ export default class Chat extends Component {
         })
       }
 
-      componentDidMount(){
-        socket.on('message', message =>{
-          console.log(message)
-          let {groupetext} = this.state
-          groupetext.push(message)
-          console.log(groupetext)
-          this.setState({change:true})
-        })
-        socket.on('info', message =>{
-          console.log(message)
-        })
-      }
-      componentDidUpdate(){
-        socket.on('message', message =>{
-          console.log(message)
-          let {groupetext} = this.state
-          groupetext.push(message)
-          console.log(groupetext)
-          this.setState({change:true})
-        })
-      }
-      
       componentDidUpdate(){
         if(this.state.friendid !== this.props.valeur){
           this.setState({friendid:this.props.valeur})
@@ -95,6 +73,19 @@ export default class Chat extends Component {
             socket.emit('joinRoom', this.state.room)
           })
         }
+      }
+
+      componentDidMount(){
+        socket.on('message', message =>{
+          console.log(message)
+          let {groupetext} = this.state
+          groupetext.push(message)
+          //console.log(groupetext)
+          this.setState({change:true})
+        })
+        socket.on('info', message =>{
+          console.log(message)
+        })
       }
       onSubmit = () => {
         socket.emit("sendmessage", {

@@ -1,6 +1,7 @@
 const http = require('http');
 const app = require('./app');
-
+const mongoose = require('mongoose');
+const Groupe = require('./models/groupe');
 
 // création du serveur express.js
 app.set('port', process.env.PORT || 4000);
@@ -16,7 +17,7 @@ const io = socketio(server, {
 })
 
 
-// 1er essaie de l'utilisation de socket.io pas encore fonctionnel
+// 1er essaie de l'utilisation de socket.io fonctionnel
 io.on("connection", (socket) => {
     console.log("new client connected");
     socket.on('joinRoom', room => {
@@ -25,29 +26,34 @@ io.on("connection", (socket) => {
         const user = userJoin(socket.id, room);
         socket.join(user.room);
 
-        // Broadcast when a user connects
         socket.broadcast.to(user.room).emit('info', "has joined the chat" + room);
-        // Send users and room info
-        /*io.to(user.room).emit('roomUsers', {
-            room: user.room,
-            users: getRoomUsers(user.room)
-        });
-        */
     });
 
     socket.on("sendmessage", (data) => {
-            console.log("data of send message : ", data.message, data.room)
-            const user = getRoomUsers(data.room);
-            console.log(user, data.message)
-            io.to(data.room).emit('message', { text: data.message, author: data.author })
-        })
-        /*socket.on('leave', () => {
-            const user = userLeave(socket.id);
-            if (user) {
-                // Send users and room info
-                io.to(user.room).emit('message', "il est parti de :" + user.room);
+        console.log("data of send message : ", data.message, data.room)
+        const user = getRoomUsers(data.room);
+        console.log(user, data.message)
+
+        Groupe.updateOne({
+            _id: data.room
+        }, {
+            $push: {
+                message: {
+                    text: data.message,
+                    author: data.author
+                }
             }
-        });*/
+        }, function(err, docs) {
+            if (err) {
+                console.log(err)
+            } else {
+                console.log("great update :", docs)
+            }
+        })
+
+        io.to(data.room).emit('message', { text: data.message, author: data.author })
+    })
+
     socket.on('disconnect', () => {
         const user = userLeave(socket.id);
         if (user) {
@@ -75,22 +81,5 @@ function userLeave(id) {
 function getRoomUsers(room) {
     return users.filter(user => user.room === room);
 }
-/*
-const addUser = ({ id, name, room }) => {
-    room = room.trim().toLowerCase();
-
-    const existingUser = users.find((user) => user.room === room && user.name === name);
-
-    if (!name || !room) return { error: 'Username and room are required.' };
-    if (existingUser) return { error: 'Username is taken.' };
-
-    const user = { id, name, room };
-
-    users.push(user);
-
-    return { user };
-}
-const getUser = (id) => users.find((user) => user.id === id);
-const getUsersInRoom = (room) => users.filter((user) => user.room === room);*/
 
 server.listen(process.env.PORT || 4000);
