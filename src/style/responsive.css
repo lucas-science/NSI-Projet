@@ -1,0 +1,228 @@
+                @media only screen and (max-width:700px) {
+                    /*Nav barre*/
+                    .logo-parti {
+                        width: 40%;
+                    }
+                    .nav-barre {
+                        height: 5%;
+                    }
+                    /*Home*/
+                    .home-gauche {
+                        width: 100%;
+                        padding: 0;
+                        justify-content: flex-end;
+                    }
+                    .boutton-centre {
+                        height: auto;
+                        flex-direction: column;
+                    }
+                    .texte-centre {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-around;
+                        height: 15%;
+                        width: 100%;
+                        margin-top: 0%;
+                        margin-bottom: 30%;
+                        padding-left: 2.5%;
+                    }
+                    .garder_contact {
+                        font-size: 10vw;
+                    }
+                    .rejoignez {
+                        font-size: 5vw;
+                    }
+                    .boutton-centre1 {
+                        width: 70%;
+                        padding: 4% 4%;
+                        font-size: 5vw;
+                        margin-bottom: 3%;
+                    }
+                    .boutton-centre2 {
+                        width: 70%;
+                        padding: 4% 4%;
+                        font-size: 5vw;
+                        margin-bottom: 15%;
+                    }
+
+                    .fleche{
+                        bottom:1%;
+                        height: 3%;
+                        width: auto;
+                        left: 50%;
+                        padding:0.2% ;
+                    }
+                    /*Page 2*/
+                    .contenupage2 {
+                        flex-direction: column;
+                    }
+                    .imagepage2 {
+                        width: 80%;
+                    }
+                    .textepage2 {
+                        width: 80%;
+                    }
+                    .texte1page2 {
+                        font-size: 4vw;
+                    }
+                    .titrepage2 {
+                        font-size: 6vw;
+                    }
+                    h4 {
+                        font-size: 6vw;
+                    }
+                    /*Page 3*/
+                    .contenupage3 {
+                        flex-direction: column;
+                    }
+                    .imagepage3 {
+                        width: 100%;
+                    }
+                    .textepage3 {
+                        width: 80%;
+                    }
+                    .texte1page3 {
+                        font-size: 4vw;
+                    }
+                    .titrepage3 {
+                        font-size: 6vw;
+                    }
+                    h4 {
+                        font-size: 6vw;
+                    }
+                    /*Page 4*/
+                    .Alexandre,
+                    .Delphine,
+                    .Paul,
+                    .Louis {
+                        border-radius: 2.25vw;
+                    }
+                    .contenupage4 {
+                        flex-direction: column;
+                    }
+                    .textepage4 {
+                        width: 80%;
+                    }
+                    .imagepage4 {
+                        width: 90%;
+                        height: 65%;
+                    }
+                    .image1page4 {
+                        height: auto;
+                        width: 40%;
+                    }
+                    .texte1page4 {
+                        font-size: 4vw;
+                    }
+                    .forme-box {
+                        width: 100%;
+                        background-image: url('../image/forme-bleu-smartphone.svg');
+                        background-size: auto;
+                    }
+                    .point-rouge1 {
+                        display: none;
+                    }
+                    .point-rouge2 {
+                        display: none;
+                    }
+                    .point-rouge3 {
+                        display: none;
+                    }
+                    .point-rouge4 {
+                        display: none;
+                    }
+                    /*Page 5*/
+                    .video {
+                        width: 277.2px;
+                        height: 155.7px;
+                    }
+                    /*Page 7*/
+                    .superviser {
+                        width: 70%;
+                    }
+                    .personne-superviser {
+                        flex-direction: column;
+                        align-items: center;
+                    }
+                    .lucas {
+                        width: 70%;
+                    }
+                    .matthieu {
+                        width: 70%;
+                    }
+                    /*Page 8*/
+                    .contenupage8 {
+                        flex-direction: column;
+                    }
+                    .colonegauchecv1,
+                    .colonededroitecv2 {
+                        position: static;
+                        width: 100%;
+                        border-radius: 0 0 0 0;
+                    }
+                    .textegauchecv1,
+                    .textedroitecv2 {
+                        margin-top: 20%;
+                        font-size: 5vw;
+                        text-align: center;
+                    }
+                    .titrecv1,
+                    .titrecv2 {
+                        font-size: 4.5vw;
+                    }
+                    .textedroitecv1,
+                    .textegauchecv2 {
+                        font-size: 3.5vw;
+                    }
+                    .colonedroitecv1,
+                    .colonedegauchecv2 {
+                        width: 97%;
+                        margin-bottom: 20%;
+                        margin-top: 20%;
+                    }
+                    .competences-cv1 {
+                        flex-direction: column;
+                        align-items: center;
+                    }
+                    /*Page 9*/
+                    .contenupage9 {
+                        flex-direction: column-reverse;
+                    }
+                }
+                
+                @media only screen and (max-width:1050px) and (min-width:700px) {
+                    .Alexandre,
+                    .Delphine,
+                    .Paul,
+                    .Louis {
+                        border-radius: 1vw;
+                        height: 15%;
+                    }
+                    .classementpage4 {
+                        height: 20%;
+                    }
+                }
+                
+                @media only screen and (max-width:700px) and (min-width:475px) {
+                    .textegauchecv1,
+                    .textedroitecv2 {
+                        margin-top: 17%;
+                        font-size: 3vw;
+                        text-align: center;
+                    }
+                }
+                
+                @media only screen and (max-width:700px) and (min-width:475px) {
+                    .page4 {
+                        height: 130vh;
+                    }
+                }
+                
+                @media only screen and (max-width:850px) {
+                    .link-scroll {
+                        font-size: 2.5vw;
+                    }
+                    .link {
+                        font-size: 2.5vw;
+                    }
+                }

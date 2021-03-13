@@ -8,7 +8,7 @@ import { withRouter } from "react-router-dom";
 
 
 
-export default class Application1 extends Component {
+export default class friendsliste extends Component {
     
       // création du State "friend"
       constructor(props) {
