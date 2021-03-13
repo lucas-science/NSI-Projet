@@ -11,6 +11,7 @@ const jwt = require('jsonwebtoken');
 
 // routage pour le chemin /signup et /signin
 const connexionRoutes = require('./routes/user');
+//const appRoutes = require()
 
 // fonction pour vérifier si la personne est connecté
 const authController = require('./controllers/auth');
