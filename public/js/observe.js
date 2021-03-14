@@ -21,7 +21,7 @@ let heightforme = forme.clientHeight * 0.8;
 link1.classList.add('link');
 link2.classList.add('link');
 link3.classList.add('link');
-logo.src = "../src/image/logo-ichat.png";
+logo.src = "../logo-ichat.png";
 
 window.addEventListener('scroll', () => {
     console.log(window.scrollY);
@@ -31,12 +31,12 @@ window.addEventListener('scroll', () => {
 
 window.addEventListener('scroll', () => {
     if (window.scrollY > ChangePage5min && window.scrollY < ChangePage5max) {
-        logo.src = "../src/image/logo-ichat-white.png"
+        logo.src = "../logo-ichat-white.png"
         link1.classList.add('link-scroll-video');
         link2.classList.add('link-scroll-video');
         link3.classList.add('link-scroll-video');
     } else {
-        logo.src = "../src/image/logo-ichat.png"
+        logo.src = "../logo-ichat.png"
         link1.classList.remove('link-scroll-video');
         link2.classList.remove('link-scroll-video');
         link3.classList.remove('link-scroll-video');
