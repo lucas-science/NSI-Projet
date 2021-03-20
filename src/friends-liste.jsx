@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Router, Link, Switch } from "react-router-dom"
 import './style/app.css';
 import Chat from './components/chat';
 import { withRouter } from "react-router-dom";
-
+import Barregauche from './barre-gauche.jsx';
 
 
 
@@ -80,29 +80,32 @@ export default class friendsliste extends Component {
     render() {
       const {message} = this.state
       return (
-      <div className="corps">
-        <div className="colone-gauche">
-          <div className="add-friends">
-            <form onSubmit={this.onSubmit}>
-                <input 
-                name="friend"
-                type="text" 
-                placeholder="add a friend"
-                value={this.state.friend}
-                onChange={this.handleInputChange}
-                required
-                />
-                <input type="submit" value="Submit"/>
-                <p>{message}</p>
-            </form>
-          </div>
-        <div className="friend-list">
-          {this.state.amislist.map((amis)=>(
-            <Link to={"/app2/"+amis._id} >
-                <div className="friend" name={amis._pseudo}>
-                    <p>{amis._pseudo}</p>
-                </div>
-            </Link>
+
+        <div className="corps-friends-liste">
+          <div> 
+            <Barregauche/>
+            <div className="add-friends">
+              <form class="ajouter-amis-friens-liste" onSubmit={this.onSubmit}>
+                  <input 
+                  className="ajouter-amis-friens-liste-p1"
+                  name="friend"
+                  type="text" 
+                  placeholder="pseudo"
+                  value={this.state.friend}
+                  onChange={this.handleInputChange}
+                  required
+                  />
+                  <input className="ajouter-amis-friens-liste-p2" type="submit" value="+"/>
+                  <p>{message}</p>
+              </form>
+            </div>
+          <div className="friend-list">
+            {this.state.amislist.map((amis)=>(
+              <Link to={"/app2/"+amis._id} >
+                  <div className="friend" name={amis._pseudo}>
+                      <p>{amis._pseudo}</p>
+                  </div>
+              </Link>
           ))}
         </div>
       </div>

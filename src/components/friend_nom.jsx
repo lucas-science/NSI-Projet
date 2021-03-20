@@ -52,9 +52,10 @@ export default class friend_nom extends Component {
     }
     render(){
         return(
-            <p>
+            <p className="barre-du-haut-amis-texte">
                 {this.state.nom}
             </p>
+
         );
     }
 }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { BrowserRouter, Route, Router, Link, Switch } from "react-router-dom"
+import './style/login.css';
 
 export default class login extends Component {
       // création des states suivant
@@ -64,8 +65,9 @@ export default class login extends Component {
                 <a id="link3"><Link to="/login">Login</Link></a>
             </div>
         </div>
+        <div>
         <form onSubmit={this.onSubmit}>
-                    <h1>Login Below!</h1>
+                    <h1>Login Below!</h1>   
                     <input
                       type="email"
                       name="email"
@@ -85,6 +87,7 @@ export default class login extends Component {
                     <input type="submit" value="Submit"/>
                   </form>
                   <p>{this.state.message}</p>
+                  </div>       
         </div>
       );
 

@@ -42,6 +42,7 @@ a {
     width: 30%;
     justify-content: space-around;
     font-size: 120%;
+    color: white   ;
 }
 
 .logo-parti {
@@ -403,6 +404,7 @@ h4 {
     justify-content: space-between;
     transition: 0.4s;
     transition-timing-function: ease-in;
+    color: white;
 }
 
 .part1 {
@@ -432,7 +434,7 @@ h4 {
 
 .image-rocket {
     width: 15%;
-    margin-left: 5%;
+    margin-left: 15%;
     height: auto;
 }
 

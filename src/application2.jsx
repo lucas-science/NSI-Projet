@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import './style/app.css';
 import Chat from './components/chat';
 import { Link } from 'react-router-dom';
+import './style/app.css';
+import Barregauche from './barre-gauche.jsx';
+import Barreamisgauche from './barre-amis-gauche';
 
 
 
@@ -9,6 +12,7 @@ import { Link } from 'react-router-dom';
 
 export default class Application2 extends Component {
     
+  
       // création du State "friend"
       constructor(props) {
         super(props)
@@ -60,7 +64,7 @@ export default class Application2 extends Component {
         fetch('http://localhost:4000/app/friendlist', {
           method: 'GET',
           // credentials : include permet d'intégrer les cookie avec la requête
-          credentials: 'include', 
+          credentials: 'include',
           headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json'
@@ -79,31 +83,10 @@ export default class Application2 extends Component {
       const {message} = this.state
       const { id } = this.props.match.params;
       return (
-      <div className="corps">
+      <div className="corps"> 
         <div className="colone-gauche">
-          <div className="add-friends">
-            <form onSubmit={this.onSubmit}>
-                <input 
-                name="friend"
-                type="text" 
-                placeholder="add a friend"
-                value={this.state.friend}
-                onChange={this.handleInputChange}
-                required
-                />
-                <input type="submit" value="Submit"/>
-                <p>{message}</p>
-            </form>
-          </div>
-        <div className="friend-list">
-          {this.state.amislist.map((amis)=>(
-            <Link to={"/app2/"+amis._id}>
-                <div className="friend" name={amis._pseudo}>
-                    <p>{amis._pseudo}</p>
-                </div>
-            </Link>
-          ))} 
-        </div>
+          <Barregauche/>
+          <Barreamisgauche/>
       </div>
       <Chat valeur={id} nom={this.state.user_nom}/>
     </div>

@@ -4,6 +4,8 @@ import { io } from "socket.io-client";
 import { withRouter } from "react-router-dom";
 import FriendNom from './friend_nom'
 
+
+
 const socket = io('http://localhost:4000');
 export default class Chat extends Component {
   // création du state "message"
@@ -100,14 +102,17 @@ export default class Chat extends Component {
       if(this.state.change === true){
         this.setState({change:false})
         return(
-          <div className="colone-droite">
+          <div>
+            <div className="barre-du-haut-amis">
           <FriendNom id={this.props.valeur}/>
+          </div>
+          <div className="colone-droite">
           <div className="chat">
             <div className="chat">
               {this.state.groupetext.map((mess)=>(
                 <div className="message-envoye">
-                  <p>{mess.author}</p>
-                  <p>{mess.text}</p>
+                  <p className="author">{mess.author}</p>
+                  <p className="textemessageP">{mess.text}</p>
                 </div>
               ))}
             </div>
@@ -115,45 +120,54 @@ export default class Chat extends Component {
             <div className="message">
                 <div className="forme-message">
                     <input 
+                    class="entrer-votre-message"
                     name="message"
                     type="text" 
-                    placeholder="type your message"
+                    placeholder="type your mssage"
                     value={this.state.message}
                     onChange={this.handleInputChange}
                     required
                     />
-                    <input type="submit" value="Submit" onClick={this.onSubmit}/>
+                    <input class="entrer-votre-message" type="submit" value="Submit" onClick={this.onSubmit}/>
                 </div>
             </div>
+        </div>
         </div>
         )
       } else{
       return (
-        <div className="colone-droite">
+        <div>
+        <div className="barre-du-haut-amis">
           <FriendNom id={this.props.valeur}/>
+          </div>
+        <div className="colone-droite">
           <div className="chat">
             <div className="chat">
               {this.state.groupetext.map((mess)=>(
                 <div className="message-envoye">
-                  <p>{mess.author}</p>
-                  <p>{mess.text}</p>
+                  <p className="author">{mess.author}</p>
+                  <p className="textemessageP">{mess.text}</p>
                 </div>
               ))}
             </div>
             </div>
             <div className="message">
                 <div className="forme-message">
+                  <div className="autour-entrer-message">
                     <input 
+                    className="type-your-message"
                     name="message"
                     type="text" 
-                    placeholder="type your message"
+                    placeholder="type your message..."
                     value={this.state.message}
                     onChange={this.handleInputChange}
                     required
                     />
-                    <input type="submit" value="Submit" onClick={this.onSubmit}/>
+                    <input className="submit" type="submit" value="Submit"   onClick={this.onSubmit}/>
+                    </div>
                 </div>
             </div>
+        </div>
         </div>
       ); 
       }

@@ -5,59 +5,116 @@ html {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.corps {
+.corps-friends-liste {
     display: flex;
-}
-
-.colone-gauche {
-    background-color: beige;
-    width: 25%;
+    background-color: #1E1E22;
+    width: 93%;
     height: 100vh;
-}
-
-.add-friends {
+    margin-left: 7%;
+    position: fixed;
     display: flex;
     justify-content: center;
-    margin-top: 15px;
+    flex-direction:column;
+    align-items: center;
 }
+
+
+
 
 .friend-list {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin-bottom: 35%;
 }
 
 .friend {
-    background-color: #4b8ef2bd;
-    padding: 0.1%;
-    margin-top: 15px;
-    width: 100px;
+    background: #2A2B3C;
+    color: rgb(199, 199, 199);
+    padding: 0.5%;
+    margin-top: 2%;
+    width: 110vh;
     display: flex;
     justify-content: center;
+    border-radius: 0.5vw;
+    transition: 0.2s;
+
+  
 }
+
+.friend:hover{
+    width: 111vh;
+    background-color: #3D3D49;
+}
+
+.friend:active{
+    background-color: #3D3D49;
+}
+
+.ajouter-amis-friens-liste{
+    margin-left: 77%;
+    padding: 0.5%;
+    background-color: #3D3D49;
+    display: flex;
+    justify-content: center;
+    border-radius: 0.2vw;
+    align-items: center;
+    width: 20%;
+    color: rgb(199, 199, 199);
+}
+
+.ajouter-amis-friens-liste-p1{
+    background-color: #3D3D49;
+    border-style: none;
+    width: 80%;
+}
+
+.ajouter-amis-friens-liste-p2{
+    background-color: #3D3D49;
+    border-style: none;
+    font-size: 1em;
+}
+
+
+
+
+
+
+
+
+.corps{
+    position: fixed;
+    width: 72%;
+    height: 100%;
+    left:30%;
+    background-color: #232529;
+}
+
 
 .colone-droite {
-    display: flex;
-    flex-direction: column;
-    width: 80%;
-    height: 100vh;
-    background-color: burlywood;
+    position: fixed;
+    width: 73%;
+    height: 74%;
+    top: 8%;
+    left:30%;
+    overflow-y: scroll;
 }
 
-.chat {
-    width: 100%;
-    height: 90vh;
-    background-color: cadetblue;
-}
-
+ 
 .message {
-    width: 100%;
-    height: 10vh;
-    background-color: crimson;
+    width: 71%;
+    height: 15%;
+    display: flex;
+    position: fixed;
+    bottom:0%;
+    align-items: center;
+    justify-content: center;
+    background-color: #232529;
 }
 
 .forme-message {
+    margin-top: 1%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -66,19 +123,96 @@ html {
 }
 
 .message-envoye {
-    width: 20%;
-    padding: 0.25%;
-    margin-top: 15px;
-    background-color: rgb(29, 34, 43);
-    color: white;
-    border-radius: 15px;
+    width: 100%;
+    height: 90%;
+    margin-top: 3%;
+    color: rgb(199, 199, 199);
+    transition: 0.3s;
 }
 
-.message-recu {
-    width: 20%;
-    padding: 0.25%;
-    margin-top: 20px;
-    background-color: rgb(55, 64, 82);
-    color: rgb(255, 255, 255);
-    border-radius: 15px;
+.message-envoye:hover{
+    background-color: #3D3D49;
 }
+
+.author{
+    margin-left: 10%;
+    font-size: 1.3vw;
+    color: grey;
+    margin-bottom: -2%;
+
+}
+
+.textemessageP{
+    margin-left: 10%;
+    font-size: 1.5vw;
+    color: rgb(199, 199, 199);
+}
+
+.autour-entrer-message{
+    width: 70%;
+    height: 80%;
+    border-radius: 1vw;
+    background-color: #3D3D49;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #828282;
+    border-style: none;
+}
+    
+
+.type-your-message{
+    background-color: #3D3D49;
+    border-style: none;
+    height: 80%;
+    width: 80%;
+    color: #828282;
+    font-size: 1.5vw;
+    
+}
+
+.submit{
+    border-style: none;
+    height: 80%;
+    color: #828282;
+    background-color: #3D3D49;
+    font-size: 1.5vw;
+}
+
+.barre-du-haut-amis{
+    background-color: #24282D;
+    color: rgb(199, 199, 199);
+    font-size: 2vw;
+    display: flex;
+    align-items: center;
+    height: 8vh;
+    width: 100%;
+}
+
+.barre-du-haut-amis-texte{
+    margin-left: 3%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,56 @@
+body,
+html {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+.liste-amis-gauche{
+    position: fixed;
+    width: 23%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction:column;
+    align-items: center;
+    left:7%;
+    top:0%;
+    background-color: #1E1E22;
+}
+
+
+
+.friend-list-gauche{
+    width: 50%;
+    height: 40%;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    font-size: 1vw;
+    justify-content: center;
+
+}
+
+.friend-list-gauche-amis{
+    background: #2A2B3C;
+    color: rgb(199, 199, 199);
+    padding: 0.5%;
+    margin-top: 3%;
+    width: 36vh;
+    display: flex;
+    justify-content: center;
+    border-radius: 0.5vw;
+    transition: 0.2s;
+}
+
+
+.friend-list-gauche-amis:hover{
+    width: 37vh;
+    background-color: #3D3D49;
+}
+
+.friend-list-gauche-amis:active{
+    background-color: #3D3D49;
+}
+
+
