@@ -7,6 +7,7 @@ import Friendlist from './friendlist.jsx'
 import Application2 from './application2'
 import withAuth from './withAuth'
 import Chat from './components/chat.jsx'
+import './style/app.css'
 
 class App extends Component {
   // différente route renvoyant un composant react
@@ -22,7 +23,7 @@ class App extends Component {
             <Route path="/app/friendlist" component={withAuth(Friendlist)} />
             <Route path="/app2/:id" component={withAuth(Application2)}/>
         </Switch>
-        </div>
+      </div>
     </BrowserRouter>
     );
   }

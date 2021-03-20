@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
-import './style/app.css';
+
 import Chat from './components/chat';
 import { Link } from 'react-router-dom';
-
-
-
 
 
 export default class Application2 extends Component {

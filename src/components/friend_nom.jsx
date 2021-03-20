@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import '../style/app.css'
 
 
 export default class friend_nom extends Component {

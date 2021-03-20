@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../style/app.css'
+
 import { io } from "socket.io-client"; 
 import { withRouter } from "react-router-dom";
 import FriendNom from './friend_nom'
@@ -82,6 +82,16 @@ export default class Chat extends Component {
           groupetext.push(message)
           //console.log(groupetext)
           this.setState({change:true})
+          console.log(groupetext)
+        })
+        socket.on('messageDelete',value =>{
+          console.log('le message suprimé : ',value)
+          let {groupetext} = this.state
+          const index = groupetext.findIndex(mess => mess._id === value)
+          if(index != -1){
+            groupetext.splice(index,1)
+            this.setState({change:true})
+          }
         })
         socket.on('info', message =>{
           console.log(message)
@@ -95,7 +105,14 @@ export default class Chat extends Component {
         })
         this.setState({message:''})
       }
+      deleteMessage = (event) =>{
+        const { value } = event.target;
+        socket.emit('getMessageToDelete',{
+          value: value,
+          room: this.state.room
+        })
 
+      }
     render() {
       if(this.state.change === true){
         this.setState({change:false})
@@ -108,6 +125,7 @@ export default class Chat extends Component {
                 <div className="message-envoye">
                   <p>{mess.author}</p>
                   <p>{mess.text}</p>
+                  <button onClick={this.deleteMessage}>Delete</button>
                 </div>
               ))}
             </div>
@@ -137,6 +155,7 @@ export default class Chat extends Component {
                 <div className="message-envoye">
                   <p>{mess.author}</p>
                   <p>{mess.text}</p>
+                  <button value={mess._id} onClick={this.deleteMessage}>Delete</button>
                 </div>
               ))}
             </div>
