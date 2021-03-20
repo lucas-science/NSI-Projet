@@ -98,12 +98,14 @@ export default class Chat extends Component {
         })
       }
       onSubmit = () => {
-        socket.emit("sendmessage", {
-          message:this.state.message,
-          author:this.props.nom,
-          room:this.state.room
-        })
-        this.setState({message:''})
+        if(this.state.message != ''){
+          socket.emit("sendmessage", {
+            message:this.state.message,
+            author:this.props.nom,
+            room:this.state.room
+          })
+          this.setState({message:''})
+        }
       }
       deleteMessage = (event) =>{
         const { value } = event.target;
@@ -114,6 +116,8 @@ export default class Chat extends Component {
 
       }
     render() {
+      const BLOCK = {diplay: 'block'}
+      const NONE= {diplay: 'none'}
       if(this.state.change === true){
         this.setState({change:false})
         return(
@@ -125,7 +129,7 @@ export default class Chat extends Component {
                 <div className="message-envoye">
                   <p>{mess.author}</p>
                   <p>{mess.text}</p>
-                  <button onClick={this.deleteMessage}>Delete</button>
+                  { this.props.nom == mess.author ? <button value={mess._id} onClick={this.deleteMessage}>Delete</button> : console.log('')}
                 </div>
               ))}
             </div>
@@ -155,7 +159,7 @@ export default class Chat extends Component {
                 <div className="message-envoye">
                   <p>{mess.author}</p>
                   <p>{mess.text}</p>
-                  <button value={mess._id} onClick={this.deleteMessage}>Delete</button>
+                  { this.props.nom == mess.author ? <button value={mess._id} onClick={this.deleteMessage}>Delete</button> : console.log('')}
                 </div>
               ))}
             </div>
