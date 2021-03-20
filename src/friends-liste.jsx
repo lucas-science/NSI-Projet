@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Router, Link, Switch } from "react-router-dom"
+import './style/app.css';
 import Chat from './components/chat';
 import { withRouter } from "react-router-dom";
 
@@ -7,7 +8,7 @@ import { withRouter } from "react-router-dom";
 
 
 
-export default class friendlist extends Component {
+export default class friendsliste extends Component {
     
       // création du State "friend"
       constructor(props) {
