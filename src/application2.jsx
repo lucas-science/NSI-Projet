@@ -72,7 +72,8 @@ export default class Application2 extends Component {
           //console.log(response)
           this.setState({amislist:response.friends})
           this.setState({user_nom:response.pseudo})
-          //console.log("state", this.state.amislist, this.state.user_nom)
+          //let test = this.state.amislist
+          //console.log("state", typeof(test))
         })
       }
 
@@ -82,7 +83,7 @@ export default class Application2 extends Component {
       return (
       <div className="corps"> 
         <div className="colone-gauche">
-          <Barregauche/>
+          <Barregauche />
           <Barreamisgauche/>
       </div>
       <Chat valeur={id} nom={this.state.user_nom}/>

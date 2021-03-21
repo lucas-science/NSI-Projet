@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './style/barre-gauche.css';
 import profil from './image/img-profil.jpg'
 import envelope from './image/envelope.png'
@@ -15,8 +16,12 @@ export default class barregauche extends Component {
                         <img className="profil"  src={profil} alt="photo de profil"/>
                     </div>
                     <div className="bouton-parti ">
-                        <img  className="logo-message" src={envelope} alt="message"/>
-                        <img  className="logo-users"src={users} alt="amis"/>
+                        <Link to={'/app2/'+this.props.firstFriend}>
+                            <img  className="logo-message" src={envelope} alt="message"/>
+                        </Link>
+                        <Link to='/app/friendlist'>
+                            <img  className="logo-users"src={users} alt="amis"/>
+                        </Link>
                         <img   className="logo-rouage" src={rouage} alt="paramétres"/>
                     </div>
                     <div className="deconextion">
@@ -24,8 +29,6 @@ export default class barregauche extends Component {
                     </div>
                 </div>
             </div>
-
         );
     }
-
 }

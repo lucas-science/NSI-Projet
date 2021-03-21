@@ -72,7 +72,7 @@ export default class friendsliste extends Component {
         .then(response => {
           console.log(response)
           this.setState({amislist:response.friends})
-          console.log("state", this.state.amislist)
+          console.log("state", this.state.amislist[0]._id)
         })
       }
 
@@ -83,7 +83,7 @@ export default class friendsliste extends Component {
 
         <div className="corps-friends-liste">
           <div> 
-            <Barregauche/>
+            <Barregauche firstFriend={this.state.amislist[0]._id}/>
             <div className="add-friends">
               <form class="ajouter-amis-friens-liste" onSubmit={this.onSubmit}>
                   <input 
