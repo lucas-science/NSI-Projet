@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
-import './style/app.css';
+
 import Chat from './components/chat';
 import { Link } from 'react-router-dom';
 import './style/app.css';
 import Barregauche from './barre-gauche.jsx';
 import Barreamisgauche from './barre-amis-gauche';
-
-
-
 
 
 export default class Application2 extends Component {

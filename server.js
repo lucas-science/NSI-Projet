@@ -33,7 +33,7 @@ io.on("connection", (socket) => {
         console.log("data of send message : ", data.message, data.room)
         const user = getRoomUsers(data.room);
         console.log(user, data.message)
-
+        let lastmessageid
         Groupe.updateOne({
             _id: data.room
         }, {
@@ -47,13 +47,40 @@ io.on("connection", (socket) => {
             if (err) {
                 console.log(err)
             } else {
-                console.log("great update :", docs)
+                Groupe.findOne({ _id: data.room }, function(err, docs) {
+                    if (err) {
+                        console.log(err)
+                    } else {
+                        let lastmessage = docs.message.pop()
+                        lastmessageid = lastmessage._id
+                        console.log("last mess : ", lastmessage)
+                        io.to(data.room).emit('message', { _id: lastmessageid, text: data.message, author: data.author })
+                    }
+                })
             }
         })
-
-        io.to(data.room).emit('message', { text: data.message, author: data.author })
     })
+    socket.on('getMessageToDelete', (data) => {
+        console.log('the value and the room:', data.value, data.room)
+        Groupe.updateOne({
+            _id: data.room
+        }, {
+            $pull: {
+                message: {
+                    _id: data.value
+                }
+            }
+        }, function(err, docs) {
+            if (err) {
+                console.log(err)
+            } else {
+                console.log('update : ', docs)
+            }
 
+
+        })
+        io.to(data.room).emit('messageDelete', data.value)
+    })
     socket.on('disconnect', () => {
         const user = userLeave(socket.id);
         if (user) {

@@ -3,10 +3,12 @@ import { BrowserRouter, Route, Router, Link, Switch } from "react-router-dom"
 import Home from './Home.jsx';
 import Login from './login.jsx';
 import Signup from './signup.jsx'
+
 import Friendsliste from './friends-liste.jsx'
 import Application2 from './application2'
 import withAuth from './withAuth'
 import Chat from './components/chat.jsx'
+import './style/app.css'
 
 class App extends Component {
   // différente route renvoyant un composant react
@@ -22,7 +24,7 @@ class App extends Component {
             <Route path="/app/friendlist" component={withAuth(Friendsliste)} />
             <Route path="/app2/:id" component={withAuth(Application2)}/>
         </Switch>
-        </div>
+      </div>
     </BrowserRouter>
     );
   }
