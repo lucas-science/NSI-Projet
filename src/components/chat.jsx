@@ -72,6 +72,7 @@ export default class Chat extends Component {
             //console.log(response[0].message)
             this.setState({room:response[0]._id})
             //console.log(this.state.room) 
+            socket.emit('leave')
             socket.emit('joinRoom', this.state.room)
           })
         }

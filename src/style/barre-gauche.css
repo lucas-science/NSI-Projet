@@ -3,37 +3,35 @@ html {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-
-
-.nav-barre-gauche{
+.nav-barre-gauche {
     position: fixed;
     width: 7%;
     height: 100%;
     display: flex;
     justify-content: space-between;
-    flex-direction:column;
-    left:0%;
-    top:0%;
+    flex-direction: column;
+    left: 0%;
+    top: 0%;
     background-color: #15151a;
 }
 
-.profil-users{
+.profil-users {
     width: 100%;
-    display:flex;    
+    display: flex;
     align-items: center;
-    flex-direction:column;
+    flex-direction: column;
     margin-top: 15%;
 }
 
-.profil{
-    width: 75%;    
+.profil {
+    width: 75%;
 }
 
 .bouton-parti {
     margin-bottom: 250%;
     width: 100%;
     display: flex;
-    flex-direction:column;
+    flex-direction: column;
     justify-content: space-around;
     align-items: center;
     height: 30%;
@@ -41,7 +39,7 @@ html {
 
 .logo-message,
 .logo-users,
-.logo-rouage{   
+.logo-rouage {
     width: 45%;
     display: flex;
     align-items: center;
@@ -49,23 +47,27 @@ html {
     background-color: transparent;
 }
 
+.logo-users:hover,
+.logo-message:hover,
+.logo-rouage:hover,
+.logo-deconextion:hover,
 .logo-message:active,
 .logo-users:active,
 .logo-rouage:active,
-.logo-deconextion:active{
-background-color: gray;
+.logo-deconextion:active {
+    background-color: gray;
+    transition-duration: 0.25s;
 }
 
-
-
-.deconextion{
+.deconextion {
     width: 100%;
-    display:flex;
+    display: flex;
     align-items: center;
-    flex-direction:column;
+    flex-direction: column;
     margin-bottom: 10%;
 }
-.logo-deconextion{
+
+.logo-deconextion {
     width: 35%;
     display: flex;
     align-items: center;

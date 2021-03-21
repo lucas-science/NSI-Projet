@@ -25,7 +25,7 @@ io.on("connection", (socket) => {
         const test = userLeave(socket.id);
         const user = userJoin(socket.id, room);
         socket.join(user.room);
-
+        console.log(users)
         socket.broadcast.to(user.room).emit('info', "has joined the chat" + room);
     });
 
@@ -80,6 +80,13 @@ io.on("connection", (socket) => {
 
         })
         io.to(data.room).emit('messageDelete', data.value)
+    })
+    socket.on('leave', () => {
+        const user = userLeave(socket.id);
+        if (user) {
+            // Send users and room info
+            io.to(user.room).emit('info', "il a été deconnecté");
+        }
     })
     socket.on('disconnect', () => {
         const user = userLeave(socket.id);

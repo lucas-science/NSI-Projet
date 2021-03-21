@@ -76,7 +76,6 @@ export default class friendsliste extends Component {
         })
       }
 
-
     render() {
       const {message} = this.state
       return (
