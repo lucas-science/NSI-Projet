@@ -54,7 +54,13 @@ io.on("connection", (socket) => {
                         let lastmessage = docs.message.pop()
                         lastmessageid = lastmessage._id
                         console.log("last mess : ", lastmessage)
-                        io.to(data.room).emit('message', { _id: lastmessageid, text: data.message, author: data.author })
+                        const search = users.filter(people => people.room === '603a7ca20a80fa0ad4fc8544')
+                        console.log("test", search.length)
+                        if (search.length > 1) {
+                            io.to(data.room).emit('message', { _id: lastmessageid, text: data.message, author: data.author })
+                        } else {
+                            socket.emit('message', { _id: lastmessageid, text: data.message, author: data.author })
+                        }
                     }
                 })
             }
