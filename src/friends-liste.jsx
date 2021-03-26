@@ -4,7 +4,7 @@ import './style/app.css';
 import Chat from './components/chat';
 import { withRouter } from "react-router-dom";
 import Barregauche from './barre-gauche.jsx';
-import StatWithFriend from './components/state'
+import StatWithFriend from './components/statistique'
 
 
 

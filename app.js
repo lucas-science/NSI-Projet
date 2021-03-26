@@ -67,25 +67,29 @@ app.use('/app/statByUser', authController.withAuth, (req, res, next) => {
         req.headers['x-access-token'] ||
         req.cookies.token;
 
-    jwt.verify(token, secret, function(err, decoded) {
+    jwt.verify(token, secret, async function(err, decoded) {
         if (err) {
             res.status(401).send({ error: "invalide token" });
         } else {
-            User.findOne({ _id: decoded.userId }, function(err, docs) {
-                if (err) {
-                    res.status(401).send({ error })
-                } else {
-                    console.log("here", docs.friends)
-                    const frirends = docs.friends
-                    for (let i = 0; i < frirends.length; i++) {
-                        console.log(frirends[i])
-                    }
-                    res.status(200)
+            try {
+                const GroupeDocs = await Groupe.find({ "membres._id": decoded.userId })
+                const statistique = []
+                for (let i = 0; i < GroupeDocs.length; i++) {
+                    let nbr_message = GroupeDocs[i].message.length
+                    let friend_id = GroupeDocs[i].membres.filter(friend => friend._id != decoded.userId)
+                    const pseudoFriend = await User.find({ _id: friend_id[0]._id })
+                    let friendName = pseudoFriend[0].pseudo
+                    statistique.push({ friend_name: friendName, nbr_message: nbr_message })
                 }
-            });
+                console.log(statistique)
+                res.status(200).json(statistique)
+            } catch (err) {
+                res.status(401).json({ err })
+            }
         }
-    });
-})
+    })
+});
+
 app.use('/app/getFriendName', authController.withAuth, (req, res, next) => {
     const token =
         req.body.token ||
