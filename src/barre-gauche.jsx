@@ -15,7 +15,7 @@ export default class barregauche extends Component {
                     <div className="profil-users">
                         <img className="profil"  src={profil} alt="photo de profil"/>
                     </div>
-                    <div className="bouton-parti ">
+                    <div className="bouton-part ">
                         <Link to={'/app2/'+this.props.firstFriend}>
                             <img  className="logo-message" src={envelope} alt="message"/>
                         </Link>

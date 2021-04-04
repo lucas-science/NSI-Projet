@@ -27,9 +27,9 @@ function Home() {
                 <a href="#pagehome">  <img className="logo" id="logo1"  src={logoichat} alt="logo ichat"/></a>
             </div>
             <div className="bouton-parti ">
-                <a id="link1"><Link to="/app/friendlist">Application</Link></a>
-                <a id="link2" ><Link to="/signup">Signin</Link></a>
-                <a id="link3"><Link to="/login">Login</Link></a>
+                <a id="link1" ><Link id="link4" className="link-color" to="/app/friendlist">Application</Link></a>
+                <a id="link2" ><Link id="link5" className="link-color" to="/signup">Signin</Link></a>
+                <a id="link3" ><Link id="link6" className="link-color" to="/login">Login</Link></a>
             </div>
         </div>
 
@@ -40,7 +40,7 @@ function Home() {
             </div>
             <div className="boutton-centre">
                 <a className="boutton-centre1" href="#page2">En savoir plus</a>
-                <a className="boutton-centre2" href="#"><Link to="/app/friendlist">Ouvrir iChat</Link></a>
+                <a className="boutton-centre2" ><Link className="boutton-centre2-link" to="/app/friendlist">Ouvrir iChat</Link></a>
             </div>
         </div>
         <div>

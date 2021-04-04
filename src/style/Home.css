@@ -21,7 +21,6 @@ nav {
 
 a {
     text-decoration: none;
-    color: white;
 }
 
 .nav-barre {
@@ -36,13 +35,12 @@ a {
 }
 
 .bouton-parti {
-    height: 100%;
     display: flex;
     align-items: center;
     width: 30%;
     justify-content: space-around;
     font-size: 120%;
-    color: white   ;
+    color: rgba(255, 255, 255, 0.877);
 }
 
 .logo-parti {
@@ -58,7 +56,7 @@ a {
 
 .link {
     font-weight: 600;
-    color: rgba(255, 255, 255, 0.774);
+    color: rgba(255, 255, 255, 0.884);
     padding: 0.5% 1%;
     transition: 0.5s;
     border-style: solid;
@@ -72,6 +70,10 @@ a {
 .link:hover {
     border-color: rgb(255, 255, 255);
     color: #ffffffe1;
+}
+
+.link-blackcolor {
+    color: rgba(29, 29, 29, 0.774);
 }
 
 .link-scroll {
@@ -120,19 +122,19 @@ a {
     padding-left: 2.5%;
 }
 
-.fleche{
+.fleche {
     position: absolute;
-    bottom:3%;
+    bottom: 3%;
     height: 7%;
     width: auto;
     left: 40%;
-    padding:0.5% ;
-    opacity:0.75;
+    padding: 0.5%;
+    opacity: 0.75;
     transition: 0.5s;
 }
 
 .fleche:hover {
-    opacity:1;
+    opacity: 1;
     transform: scale(1.1);
 }
 
@@ -158,6 +160,7 @@ a {
     width: 100%;
     height: 20%;
     justify-content: space-around;
+    color: white;
 }
 
 .boutton-centre1 {
@@ -169,6 +172,12 @@ a {
     padding: 0.7% 2.2%;
     transition: 0.5s;
     cursor: pointer;
+    color: white;
+}
+
+.boutton-centre2-link,
+.link-color {
+    color: white;
 }
 
 .boutton-centre2 {
@@ -257,6 +266,8 @@ a {
 .home {
     height: 100vh;
 }
+
+
 /*Page 2 */
 
 .top {
@@ -306,6 +317,8 @@ h4 {
     font-size: 2vw;
     line-height: 130%;
 }
+
+
 /*Page 3 */
 
 .page3 {
@@ -343,6 +356,8 @@ h4 {
 .image1page3 {
     width: 100%;
 }
+
+
 /*Page 4 */
 
 .page4 {
@@ -453,6 +468,8 @@ h4 {
     font-size: 1.5vw;
     line-height: 130%;
 }
+
+
 /*Page 5*/
 
 .page5 {
@@ -476,9 +493,9 @@ h4 {
 }
 
 
- /*Page 6 */
+/*Page 6 */
 
- .page6 {
+.page6 {
     width: 100%;
     height: 80vh;
     margin: 0px;
@@ -496,7 +513,7 @@ h4 {
     flex-direction: column;
 }
 
-.textep6{
+.textep6 {
     font-size: 3vh;
 }
 
@@ -606,6 +623,8 @@ h4 {
 .textesuperviser {
     margin-left: 5%;
 }
+
+
 /*Page 8 */
 
 .page8 {
@@ -666,6 +685,8 @@ h4 {
     display: flex;
     justify-content: space-around;
 }
+
+
 /*Page 9 */
 
 .page9 {
