@@ -22,7 +22,9 @@ export default class barregauche extends Component {
                         <Link to='/app/friendlist'>
                             <img  className="logo-users"src={users} alt="amis"/>
                         </Link>
-                        <img   className="logo-rouage" src={rouage} alt="paramétres"/>
+                        <Link to='/app/parametre'>
+                            <img   className="logo-rouage" src={rouage} alt="paramétres"/>
+                        </Link>
                     </div>
                     <div className="deconextion">
                         <img   className="logo-deconextion" src={logout} alt="déconextion"/>

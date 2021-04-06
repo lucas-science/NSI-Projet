@@ -8,6 +8,7 @@ import Friendsliste from './friends-liste.jsx'
 import Application2 from './application2'
 import withAuth from './withAuth'
 import Chat from './components/chat.jsx'
+import Parametre from './components/paramètre'
 import './style/app.css'
 
 class App extends Component {
@@ -23,6 +24,7 @@ class App extends Component {
             {/*withAuth permet de renvoyer le composant "Application" si la vérification des cookies est validé par le server*/}
             <Route path="/app/friendlist" component={withAuth(Friendsliste)} />
             <Route path="/app2/:id" component={withAuth(Application2)}/>
+            <Route path="/app/parametre" component={withAuth(Parametre)}/>
         </Switch>
       </div>
     </BrowserRouter>

@@ -81,13 +81,60 @@ app.use('/app/statByUser', authController.withAuth, (req, res, next) => {
                     let friendName = pseudoFriend[0].pseudo
                     statistique.push({ friend_name: friendName, nbr_message: nbr_message })
                 }
-                console.log(statistique)
                 res.status(200).json(statistique)
             } catch (err) {
                 res.status(401).json({ err })
             }
         }
     })
+});
+app.use('/app/changeName', authController.withAuth, (req, res, next) => {
+    const token =
+        req.body.token ||
+        req.query.token ||
+        req.headers['x-access-token'] ||
+        req.cookies.token;
+
+    jwt.verify(token, secret, async function(err, decoded) {
+        if (err) {
+            console.log("here")
+            res.status(401).send({ error: "invalide token" });
+        } else {
+            try {
+                let doc = await User.findOneAndUpdate({ _id: decoded.userId }, { pseudo: req.body.newName });
+                console.log(doc.pseudo)
+                res.status(200)
+            } catch (err) {
+                res.status(401).json({ err })
+            }
+        }
+    });
+})
+app.use('/app/friendlist', authController.withAuth, (req, res, next) => {
+    const token =
+        req.body.token ||
+        req.query.token ||
+        req.headers['x-access-token'] ||
+        req.cookies.token;
+
+    jwt.verify(token, secret, async function(err, decoded) {
+        if (err) {
+            res.status(401).send({ error: "invalide token" });
+        } else {
+            try {
+                const UserDocs = await User.findOne({ _id: decoded.userId })
+                let data = []
+                for (let i = 0; i < UserDocs.friends.length; i++) {
+                    let friendid = UserDocs.friends[i]._id
+                    const GetFriendName = await User.find({ _id: friendid })
+                    data.push({ id: friendid, pseudo: GetFriendName[0].pseudo })
+                }
+                res.status(200).send({ data: data, firstFriend: UserDocs.friends[0]._id, pseudo: UserDocs.pseudo })
+            } catch (err) {
+                res.status(401).json({ err })
+            }
+        }
+    });
 });
 
 app.use('/app/getFriendName', authController.withAuth, (req, res, next) => {
@@ -114,29 +161,7 @@ app.use('/app/getFriendName', authController.withAuth, (req, res, next) => {
     });
 })
 
-app.use('/app/friendlist', authController.withAuth, (req, res, next) => {
-    const token =
-        req.body.token ||
-        req.query.token ||
-        req.headers['x-access-token'] ||
-        req.cookies.token;
 
-    jwt.verify(token, secret, function(err, decoded) {
-        if (err) {
-            res.status(401).send({ error: "invalide token" });
-        } else {
-            //console.log("decoded id : ", decoded)
-            // si les cookie sont validé, passé à la prochaine fonction grâce à "next()"
-            User.findOne({ _id: decoded.userId }, function(err, docs) {
-                if (err) {
-                    res.status(401).send({ error })
-                } else {
-                    res.json(docs)
-                }
-            });
-        }
-    });
-});
 
 app.use('/app/getgroupeid', authController.withAuth, (req, res, next) => {
     const token =

@@ -17,6 +17,7 @@ export default class friendsliste extends Component {
           friend : '',
           message : '',
           amislist: [{_id:0, _pseudo:""}],
+          firstFriend:"",
           room:''
         };
       }
@@ -71,18 +72,20 @@ export default class friendsliste extends Component {
         .then(response => response.json())
         .then(response => {
           console.log(response)
-          this.setState({amislist:response.friends})
-          console.log("state", this.state.amislist[0]._id)
+          this.setState({amislist:response.data})
+          this.setState({firstFriend:response.firstFriend})
+          console.log("state", this.state.amislist)
         })
       }
 
     render() {
       const {message} = this.state
+      const {amislist} = this.state
+      console.log("here",amislist)
       return (
-
         <div className="corps-friends-liste">
           <div> 
-            <Barregauche firstFriend={this.state.amislist[0]._id}/>
+            <Barregauche firstFriend={this.state.firstFriend}/>
             <div className="add-friends">
               <form class="ajouter-amis-friens-liste" onSubmit={this.onSubmit}>
                   <input 
@@ -99,10 +102,10 @@ export default class friendsliste extends Component {
               </form>
             </div>
           <div className="friend-list">
-            {this.state.amislist.map((amis)=>(
+            {amislist.map((amis)=>(
               <Link to={"/app2/"+amis._id} >
-                  <div className="friend" name={amis._pseudo}>
-                      <p>{amis._pseudo}</p>
+                  <div className="friend" name={amis.pseudo}>
+                      <p>{amis.pseudo}</p>
                   </div>
               </Link>
           ))}

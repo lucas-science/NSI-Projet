@@ -17,6 +17,7 @@ export default class Application2 extends Component {
           friend : '',
           message : '',
           amislist: [{_id:0, _pseudo:""}],
+          firstFriend:"",
           user_nom : ''
         };
       }
@@ -72,8 +73,9 @@ export default class Application2 extends Component {
           //console.log(response)
           this.setState({amislist:response.friends})
           this.setState({user_nom:response.pseudo})
+          this.setState({firstFriend:response.firstFriend})
           //let test = this.state.amislist
-          console.log("state", this.state.amislist[0]._id)
+
         })
       }
 
@@ -83,7 +85,7 @@ export default class Application2 extends Component {
       return (
       <div className="corps"> 
         <div className="colone-gauche">
-          <Barregauche firstFriend={this.state.amislist[0]._id}/>
+          <Barregauche firstFriend={this.state.firstFriend}/>
           <Barreamisgauche/>
       </div>
       <Chat valeur={id} nom={this.state.user_nom}/>

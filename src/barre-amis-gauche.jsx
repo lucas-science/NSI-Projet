@@ -17,22 +17,21 @@ export default class barregaucheamis extends Component {
 
 
     componentDidMount(){
-        fetch('http://localhost:4000/app/friendlist', {
-          method: 'GET',
-          // credentials : include permet d'intégrer les cookie avec la requête
-          credentials: 'include', 
-          headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-          }
-        })
-        .then(response => response.json())
-        .then(response => {
-          //console.log(response)
-          this.setState({amislist:response.friends})
-          this.setState({user_nom:response.pseudo})
-          //console.log("state", this.state.amislist, this.state.user_nom)
-        })
+          fetch('http://localhost:4000/app/friendlist', {
+            method: 'GET',
+            // credentials : include permet d'intégrer les cookie avec la requête
+            credentials: 'include', 
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+            }
+          })
+          .then(response => response.json())
+          .then(response => {
+            console.log(response)
+            this.setState({amislist:response.data})
+            this.setState({user_nom:response.pseudo})
+          })
       }
 
     render(){
@@ -41,11 +40,11 @@ export default class barregaucheamis extends Component {
            <div class="friend-list-gauche">
         <div >
           {this.state.amislist.map((amis)=>(
-            <Link to={"/app2/"+amis._id}>
-                <div className="friend-list-gauche-amis" name={amis._pseudo}>
-                    <p>{amis._pseudo}</p>
-                </div>
-            </Link>
+            <Link to={"/app2/"+amis._id} >
+              <div className="friend" name={amis.pseudo}>
+                  <p>{amis.pseudo}</p>
+              </div>
+          </Link>
           ))} 
         </div>
            </div>
