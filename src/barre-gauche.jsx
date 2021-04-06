@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './style/barre-gauche.css';
 import profil from './image/img-profil.jpg'
@@ -6,6 +6,8 @@ import envelope from './image/envelope.png'
 import users from './image/user.png'
 import rouage from './image/settings.png'
 import logout from './image/logout.png'
+import rockets from './image/rockets.png'
+
 
 export default class barregauche extends Component {
      render(){
@@ -25,6 +27,11 @@ export default class barregauche extends Component {
                         <Link to='/app/parametre'>
                             <img   className="logo-rouage" src={rouage} alt="paramétres"/>
                         </Link>
+
+                        <Link to='/app/statistique'>
+                            <img  className="logo-rockets"src={rockets} alt="amis"/>
+                        </Link>
+                        <img   className="logo-rouage" src={rouage} alt="paramétres"/>
                     </div>
                     <div className="deconextion">
                         <img   className="logo-deconextion" src={logout} alt="déconextion"/>
