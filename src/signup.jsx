@@ -41,7 +41,7 @@ export default class signup extends Component {
       .then((value) => {
         if (value.status === 200) {
           // s'il y a eu aucune erreur redirigé à l'acceuil
-          this.props.history.push('/');
+          this.props.history.push('/app/friendlist');
           console.log("info envoyé");
         } else {
           // s'il y a eu une erreur, renvoyer le message suivant

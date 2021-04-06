@@ -40,7 +40,7 @@ export default class login extends Component {
       .then(res => {
         if (res.status === 200) {
           // s'il y a aucune erreur, renvoyer vers l'acceuil
-          this.props.history.push('/');
+          this.props.history.push('/app/friendlist');
         }if (res.status === 401){
           // si erreur code est 401, renvoyer ce message
           this.setState({message:'Mot de passee incorrecte'});
