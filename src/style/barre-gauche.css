@@ -28,7 +28,7 @@ html {
 }
 
 .bouton-part {
-    margin-bottom: 250%;
+    margin-bottom: 200%;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -39,11 +39,22 @@ html {
 
 .logo-message,
 .logo-users,
-.logo-rouage {
+.logo-rouage{
     width: 45%;
     display: flex;
     align-items: center;
     padding: 5% 30% 5% 30%;
+    margin-top: 15%;
+    background-color: transparent;
+}
+
+.logo-rockets{
+    width: 60%;
+    display: flex;
+    align-items: center;
+    margin-top: 30%;
+    margin-left: -30%;
+    padding: 10% 54% 10% 54%;
     background-color: transparent;
 }
 
@@ -54,7 +65,9 @@ html {
 .logo-message:active,
 .logo-users:active,
 .logo-rouage:active,
-.logo-deconextion:active {
+.logo-deconextion:active,
+.logo-rockets:active,
+.logo-rockets:hover{
     background-color: gray;
     transition-duration: 0.25s;
 }

@@ -11,7 +11,6 @@ html {
     width: 93%;
     height: 100vh;
     margin-left: 7%;
-    position: fixed;
     display: flex;
     justify-content: center;
     flex-direction:column;
@@ -27,30 +26,33 @@ html {
     align-items: center;
     flex-direction: column;
     margin-bottom: 35%;
+    
 }
 
 .friend {
     background: #2A2B3C;
     color: rgb(199, 199, 199);
-    padding: 0.5%;
     margin-top: 2%;
     width: 110vh;
     display: flex;
     justify-content: center;
     border-radius: 0.5vw;
-    transition: 0.2s;
+    transition: 0.2s; 
 
-  
+    font-size: 1.7vw;
+    height: 8vh;
+    align-items: center;
+
 }
 
-.friend:hover{
-    width: 111vh;
-    background-color: #3D3D49;
-}
-
+.friend:hover,
 .friend:active{
+    width: 112vh;
+    height: 8vh;
+    margin-top: 2%;
     background-color: #3D3D49;
 }
+
 
 .ajouter-amis-friens-liste{
     margin-left: 77%;
@@ -76,6 +78,7 @@ html {
     font-size: 1em;
 }
 
+input:focus {outline:none;}
 
 
 
@@ -191,6 +194,72 @@ html {
 
 .barre-du-haut-amis-texte{
     margin-left: 3%;
+}
+
+/*statistique*/
+
+.statistique-body{
+    background-color: #1E1E22;
+    width: 93%;
+    height: 100vh;
+    margin-left:7%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.classement-stat{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
+}
+
+.casse-classement-stat{
+    font-size: 1.7vw;
+    background: #2A2B3C;
+    color: rgb(199, 199, 199);
+    margin-top: 2%;
+    width: 105vh;
+    height: 7vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.5vw;
+    transition: 0.4s; 
+}
+
+.casse-classement-stat:hover,
+.casse-classement-stat:active{
+    width: 111vh;
+    background-color: #3D3D49;
+}
+
+
+
+.barre-du-haut-stat{
+    position: fixed;
+    top: 0%;
+    background-color: #24282D;
+    height:8%;
+    width: 93%;
+    display: flex;
+    align-items: center;
+}
+
+.texte-barre-du-haut-stat{
+    font-size: 2vw;
+    margin-left: 3%;
+    color: rgb(199, 199, 199);
+}
+
+.logo-rockets-calssement-stat{
+    width: 17%;
+}
+
+.logo-rockets-calssement-stat-haut{
+    width: 4%;
 }
 
 

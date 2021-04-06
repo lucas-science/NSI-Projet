@@ -36,16 +36,16 @@ html {
     color: rgb(199, 199, 199);
     padding: 0.5%;
     margin-top: 3%;
-    width: 36vh;
+    width: 17vw;
     display: flex;
     justify-content: center;
     border-radius: 0.5vw;
-    transition: 0.2s;
+    transition: 0.3s;
 }
 
 
 .friend-list-gauche-amis:hover{
-    width: 37vh;
+    width: 17.5vw;
     background-color: #3D3D49;
 }
 

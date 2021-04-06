@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { BrowserRouter, Route, Router, Link, Switch } from "react-router-dom"
+import './style/singup.css';
 
 export default class signup extends Component {
     // création des states suivant
@@ -53,47 +54,48 @@ export default class signup extends Component {
   
     render() {
       return (
-        <div>
-          <div className="nav-barre" id="nav-barre">
-            <div className="logo-parti">
-                <img className="logo" id="logo1" alt="logo" src="image/logo-ichat.png" alt="logo ichat"/>
-            </div>
-            <div class="bouton-parti ">
-              {/*"Link" permet de faire une lien vers un chemin précis*/}
-                <a id="link1"><Link to="/app">Application</Link></a>
-                <a id="link2" ><Link to="/signup">Signin</Link></a>
-                <a id="link3"><Link to="/login">Login</Link></a>
-            </div>
-        </div>
+      <div className="body-singup">
+        <div className="box-centre-singup">
+          <div className="box-gauche-singup">
           <form onSubmit={this.onSubmit}>
-          <h1>Login Below!</h1>
-          <input
+          <h1 className="texte-Create-Account-boxgauche-singup">Create Account</h1>
+          <input className="pseudo-singup" 
             type="text"
             name="pseudo"
-            placeholder="Enter pseudo"
+            placeholder="Pseudo"
             value={this.state.pseudo}
             onChange={this.handleInputChange}
             required
           />
-          <input
+          <br></br>
+          <input className="email-singup"
             type="email"
             name="email"
-            placeholder="Enter email"
+            placeholder="E-mail"
             value={this.state.email}
             onChange={this.handleInputChange}
             required
           />
-          <input
+          <br></br>
+          <input className="password-singup"
             type="password"
             name="mdp"
-            placeholder="Enter password"
+            placeholder="Password"
             value={this.state.mdp}
             onChange={this.handleInputChange}
             required
           />
-          <input type="submit" value="Submit"/>
+          <br></br>
+          <input className="bouton-singup-gauche-singup" type="submit" value="SING UP"/>
         </form>
         <p>{this.state.message}</p>
+        </div>
+        <div className="box-droite-singup">
+          <p className="Welcome-back-singup">Welcome back </p>
+          <p className="Texte-gauche-singup">Si tu as déjà un compte, il te suffit de te connecter ! </p>
+          <Link className="boutton-singin-singup" id="link6"  to="/login">SIGN IN</Link>
+        </div>
+        </div>
         </div>
       );
 

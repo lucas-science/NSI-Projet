@@ -28,7 +28,7 @@ function Home() {
             </div>
             <div className="bouton-parti ">
                 <a id="link1" ><Link id="link4" className="link-color" to="/app/friendlist">Application</Link></a>
-                <a id="link2" ><Link id="link5" className="link-color" to="/signup">Signin</Link></a>
+                <a id="link2" ><Link id="link5" className="link-color" to="/signup">SIGN UP</Link></a>
                 <a id="link3" ><Link id="link6" className="link-color" to="/login">Login</Link></a>
             </div>
         </div>

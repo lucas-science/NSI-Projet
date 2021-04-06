@@ -6,6 +6,8 @@ import envelope from './image/envelope.png'
 import users from './image/user.png'
 import rouage from './image/settings.png'
 import logout from './image/logout.png'
+import rockets from './image/rockets.png'
+
 
 export default class barregauche extends Component {
      render(){
@@ -21,6 +23,9 @@ export default class barregauche extends Component {
                         </Link>
                         <Link to='/app/friendlist'>
                             <img  className="logo-users"src={users} alt="amis"/>
+                        </Link>
+                        <Link to='/app/statistique'>
+                            <img  className="logo-rockets"src={rockets} alt="amis"/>
                         </Link>
                         <img   className="logo-rouage" src={rouage} alt="paramétres"/>
                     </div>

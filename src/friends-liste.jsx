@@ -107,7 +107,6 @@ export default class friendsliste extends Component {
               </Link>
           ))}
         </div>
-        <StatWithFriend/>
       </div>
     </div>
       ); 

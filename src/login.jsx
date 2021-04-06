@@ -3,6 +3,7 @@ import axios from 'axios';
 import { BrowserRouter, Route, Router, Link, Switch } from "react-router-dom"
 import './style/login.css';
 
+
 export default class login extends Component {
       // création des states suivant
     constructor(props) {
@@ -54,41 +55,41 @@ export default class login extends Component {
   
     render() {
       return (
-        <div>
-            <div className="nav-barre" id="nav-barre">
-            <div className="logo-parti">
-                <img className="logo" id="logo1" alt="logo" src="image/logo-ichat.png" alt="logo ichat"/>
+        <div className="body-login">
+          <div className="box-centre-login">
+            <div className="box-gauche-login">
+              <p className="Hey-login">Hey</p>
+              <p className="Texte-gauche-login">Si tu n’as pas encore de compte crée en un !</p>
+              <Link className="boutton-singin-login" to="/signup"> SING UP</Link>
             </div>
-            <div class="bouton-parti ">
-                <a id="link1"><Link to="/app">Application</Link></a>
-                <a id="link2" ><Link to="/signup">Signin</Link></a>
-                <a id="link3"><Link to="/login">Login</Link></a>
+            <div className="box-droite-login">
+            <form onSubmit={this.onSubmit}>
+                      <h1 className="texte-login-boxdroite-login">Login</h1>   
+                      <input className="email-login"
+                        type="email"
+                        name="email"
+                        placeholder="E-mail"
+                        value={this.state.email}
+                        onChange={this.handleInputChange}
+                        required
+                      />
+                      <br></br>
+                      <input className="password-login"
+                        type="password"
+                        name="mdp"
+                        placeholder="Password"
+                        value={this.state.mdp}
+                        onChange={this.handleInputChange}
+                        required
+                      />
+                      <br></br>
+                      <input className="bouton-login-droite-login" type="submit" value="Login"/>
+                    </form>
+                    <p>{this.state.message}</p>
+                    </div>
+                    </div>       
             </div>
-        </div>
-        <div>
-        <form onSubmit={this.onSubmit}>
-                    <h1>Login Below!</h1>   
-                    <input
-                      type="email"
-                      name="email"
-                      placeholder="Enter email"
-                      value={this.state.email}
-                      onChange={this.handleInputChange}
-                      required
-                    />
-                    <input
-                      type="password"
-                      name="mdp"
-                      placeholder="Enter password"
-                      value={this.state.mdp}
-                      onChange={this.handleInputChange}
-                      required
-                    />
-                    <input type="submit" value="Submit"/>
-                  </form>
-                  <p>{this.state.message}</p>
-                  </div>       
-        </div>
+        
       );
 
     }
