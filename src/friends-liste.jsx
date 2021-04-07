@@ -103,7 +103,7 @@ export default class friendsliste extends Component {
             </div>
           <div className="friend-list">
             {amislist.map((amis)=>(
-              <Link to={"/app2/"+amis._id} >
+              <Link to={"/app2/"+amis.id} >
                   <div className="friend" name={amis.pseudo}>
                       <p>{amis.pseudo}</p>
                   </div>
