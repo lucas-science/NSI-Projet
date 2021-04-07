@@ -48,7 +48,7 @@ export default class parametre extends Component {
     render(){
         return(
             <div>
-                {/*<BarreGauche/>*/}
+                <BarreGauche/>
         <form onSubmit={this.onSubmit}>
                     <input
                       type="text"
