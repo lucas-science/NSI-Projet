@@ -8,7 +8,9 @@ export default class StatWithFriend extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      statistique_amis: [{}], amislist: [{}]
+      statistique_amis: [{}], 
+      amislist: [{}],
+      FirstFriend:""
     };
   }
     componentDidMount(){
@@ -22,7 +24,7 @@ export default class StatWithFriend extends Component {
           }
         })
         .then(response => response.json())
-        .then(response => {
+        .then(response => { 
           this.setState({statistique_amis:response})
           console.log("statistique : ",this.state.statistique_amis)
         })
@@ -38,8 +40,8 @@ export default class StatWithFriend extends Component {
         .then(response => response.json())
         .then(response => {
           console.log(response)
-          this.setState({amislist:response.friends})
-          console.log("state", this.state.amislist[0]._id)
+          this.setState({amislist:response.data})
+          this.setState({FirstFriend:response.firstFriend})
         })
       }
 
@@ -49,7 +51,7 @@ export default class StatWithFriend extends Component {
       const {statistique_amis} = this.state
         return(
           <div>
-            <Barregauche firstFriend={this.state.amislist[0]._id}/>
+            <Barregauche firstFriend={this.state.FirstFriend}/>
             <div className="statistique-body">
               <div className="barre-du-haut-stat">
                 <p className="texte-barre-du-haut-stat">Nombre de message échanger :                   Ichat rockets <img  className="logo-rockets-calssement-stat-haut"src={rockets} alt="amis"/></p>
