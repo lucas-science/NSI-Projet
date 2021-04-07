@@ -10,6 +10,29 @@ import rockets from './image/rockets.png'
 
 
 export default class barregauche extends Component {
+
+    constructor(props) {
+        super(props)
+        this.state = {
+            firstFriend:""
+        };
+      }
+
+    componentDidMount(){
+        fetch('http://localhost:4000/app/friendlist', {
+          method: 'GET',
+          // credentials : include permet d'intégrer les cookie avec la requête
+          credentials: 'include', 
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          }
+        })
+        .then(response => response.json())
+        .then(response => {
+          this.setState({firstFriend:response.firstFriend})
+        })
+    }
      render(){
         return(
             <div>
@@ -18,7 +41,7 @@ export default class barregauche extends Component {
                         <img className="profil"  src={profil} alt="photo de profil"/>
                     </div>
                     <div className="bouton-part ">
-                        <Link to={'/app2/'+this.props.firstFriend}>
+                        <Link to={'/app2/'+this.state.firstFriend}>
                             <img  className="logo-message" src={envelope} alt="message"/>
                         </Link>
                         <Link to='/app/friendlist'>
