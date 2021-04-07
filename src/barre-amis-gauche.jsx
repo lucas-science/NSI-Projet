@@ -41,7 +41,7 @@ export default class barregaucheamis extends Component {
         <div >
           {this.state.amislist.map((amis)=>(
             <Link to={"/app2/"+amis.id} >
-              <div className="friend" name={amis.pseudo}>
+              <div className="friend-list-gauche-amis" name={amis.pseudo}>
                   <p>{amis.pseudo}</p>
               </div>
           </Link>
@@ -53,3 +53,4 @@ export default class barregaucheamis extends Component {
    }
 
 }
+
