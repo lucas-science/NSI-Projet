@@ -29,9 +29,11 @@ export default class friendsliste extends Component {
           [name]: value
         });
       }
-
+      sleep = (milliseconds) => {
+        return new Promise(resolve => setTimeout(resolve, milliseconds))
+      }
       // fonction permettant de faire une requête POST au serveur et d'envoyer les données
-    onSubmit = (event) => {
+    onSubmit = async (event) => {
         event.preventDefault();
         console.log("state envois demande amis : ",this.state)
         // requête POST
@@ -58,6 +60,8 @@ export default class friendsliste extends Component {
               console.log("erreur")
           }
         })
+        await this.sleep(3000)
+        this.setState({message:""});
       }
       componentDidMount(){
         fetch('http://localhost:4000/app/friendlist', {
