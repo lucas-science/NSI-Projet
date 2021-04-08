@@ -18,33 +18,36 @@ export default class parametre extends Component {
       [name]: value
     });
   }
-    
-    onSubmit = (event)=>{
-        event.preventDefault();
-        console.log(this.state)
-        fetch('http://localhost:4000/app/changeName', {
-            method: 'POST',
-            // credentials : include permet d'intégrer les cookie avec la requête
-            credentials: 'include', 
-            body: JSON.stringify({
-                newName:this.state.newName
-              }),
-            headers: {
+  sleep = (milliseconds) => {
+    return new Promise(resolve => setTimeout(resolve, milliseconds))
+  }
+  onSubmit = async (event)=>{
+      event.preventDefault();
+      console.log(this.state)
+      const test = await fetch('http://localhost:4000/app/changeName', {
+          method: 'POST',
+          // credentials : include permet d'intégrer les cookie avec la requête
+          credentials: 'include', 
+          body: JSON.stringify({
+               newName:this.state.newName
+            }),
+          headers: {
               'Content-Type': 'application/json',
-            }
-          })
-          .then(res => {
-            if (res.status === 200) {
-              // s'il y a aucune erreur, renvoyer vers l'acceuil
-              this.setState({message:'Le Changement de pseudo a bien été effectué'});
-              console.log("OK")
-            }if (res.status === 401){
-              // si erreur code est 401, renvoyer ce message
-              this.setState({message:'Erreur'});
-            } 
-          })
-          this.setState({newName:""})
-    }
+          }
+         })
+         .then(res => {
+           if (res.status === 200) {
+             // s'il y a aucune erreur, renvoyer vers l'acceuil
+            this.setState({message:'Le Changement de pseudo a bien été effectué'});
+          }if (res.status === 401){
+            // si erreur code est 401, renvoyer ce message
+             this.setState({message:'Erreur'});
+           } 
+         })
+         this.setState({newName:""})
+        await this.sleep(3000)
+        this.setState({message:""});
+}
     render(){
         return(
             <div>

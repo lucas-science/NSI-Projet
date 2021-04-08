@@ -103,7 +103,7 @@ app.use('/app/changeName', authController.withAuth, (req, res, next) => {
             try {
                 let doc = await User.findOneAndUpdate({ _id: decoded.userId }, { pseudo: req.body.newName });
                 console.log(doc.pseudo)
-                res.status(200)
+                res.status(200).send({ message: 'OK' })
             } catch (err) {
                 res.status(401).json({ err })
             }
