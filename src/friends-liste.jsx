@@ -51,7 +51,7 @@ export default class friendsliste extends Component {
         // renvois message de réussite ou non
         .then(res => {
           if (res.status === 200) {
-            this.setState({message: ""})
+            this.setState({message: "ajout effectué"})
           } else if(res.status === 400){
             this.setState({message : "l'utilisateur rechercher n'existe pas"})
           } else if(res.status === 402){

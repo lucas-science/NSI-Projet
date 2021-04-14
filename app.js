@@ -248,7 +248,6 @@ app.post('/app/newfriend', authController.withAuth, (req, res, next) => {
         req.cookies.token;
 
     User.findOne({ pseudo: req.body.new_friend }, function(err, docs) {
-
         if (err) {
             console.log(err)
         } else if (docs == null) {
@@ -260,7 +259,7 @@ app.post('/app/newfriend', authController.withAuth, (req, res, next) => {
                 if (err) {
                     res.status(401).send({ error: "invalide token" });
                 } else {
-                    User.findOne({ _id: decoded.userId, "friends._pseudo": req.body.new_friend }, function(err, docs) {
+                    User.findOne({ _id: decoded.userId, "friends._id": friendID }, function(err, docs) {
                         if (err) {
                             console.log(err)
                         } else if (docs == null) {
@@ -307,10 +306,6 @@ app.post('/app/newfriend', authController.withAuth, (req, res, next) => {
                                         membres: [
                                             { _id: friendID },
                                             { _id: userID }
-                                        ],
-                                        message: [
-                                            { text: "wesh", author: "david" },
-                                            { text: "wesh david", author: "thierry" }
                                         ]
                                     })
                                     groupe.save()

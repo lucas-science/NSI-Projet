@@ -39,7 +39,7 @@ html {
 
 .logo-message,
 .logo-users,
-.logo-rouage{
+.logo-rouage {
     width: 45%;
     display: flex;
     align-items: center;
@@ -48,7 +48,7 @@ html {
     background-color: transparent;
 }
 
-.logo-rockets{
+.logo-rockets {
     width: 60%;
     display: flex;
     align-items: center;
@@ -67,7 +67,7 @@ html {
 .logo-rouage:active,
 .logo-deconextion:active,
 .logo-rockets:active,
-.logo-rockets:hover{
+.logo-rockets:hover {
     background-color: gray;
     transition-duration: 0.25s;
 }

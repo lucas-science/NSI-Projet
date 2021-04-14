@@ -1,4 +1,4 @@
- import React, { Component } from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './style/barre-gauche.css';
 import profil from './image/img-profil.jpg'
@@ -17,7 +17,6 @@ export default class barregauche extends Component {
             firstFriend:""
         };
       }
-
     componentDidMount(){
         fetch('http://localhost:4000/app/friendlist', {
           method: 'GET',
@@ -33,6 +32,7 @@ export default class barregauche extends Component {
           this.setState({firstFriend:response.firstFriend})
         })
     }
+
      render(){
         return(
             <div>
@@ -54,9 +54,11 @@ export default class barregauche extends Component {
                             <img   className="logo-rouage" src={rouage} alt="paramétres"/>
                         </Link>
                     </div>
-                    <div className="deconextion">
-                        <img   className="logo-deconextion" src={logout} alt="déconextion"/>
-                    </div>
+                    <Link to='/'>
+                        <div className="deconextion">
+                            <img  onClick={this.OnSubmit} className="logo-deconextion" src={logout} alt="déconextion"/>
+                        </div>
+                    </Link>
                 </div>
             </div>
         );
