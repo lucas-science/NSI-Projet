@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { io } from "socket.io-client"; 
 import { withRouter } from "react-router-dom";
 import FriendNom from './friend_nom'
-
+import trash from '../image/delete.png'
 
 
 const socket = io('http://localhost:4000');
@@ -135,7 +135,7 @@ export default class Chat extends Component {
                 <div className="message-envoye">
                   <p className="author">{mess.author}</p>
                   <p className="textemessageP">{mess.text}</p>
-                  { this.props.nom == mess.author ? <button value={mess._id} onClick={this.deleteMessage}>Delete</button> : console.log('')}
+                  { this.props.nom == mess.author ? <button value={mess._id} onClick={this.deleteMessage}> <img src={trash} /> </button> : console.log('')}
                 </div>
               ))}
             </div>
@@ -168,9 +168,10 @@ export default class Chat extends Component {
             <div className="chat">
               {this.state.groupetext.map((mess)=>(
                 <div className="message-envoye">
+                  
                   <p className="author">{mess.author}</p>
                   <p className="textemessageP">{mess.text}</p>
-                  { this.props.nom == mess.author ? <button value={mess._id} onClick={this.deleteMessage}>Delete</button> : console.log('')}
+                  { this.props.nom == mess.author ? <button value={mess._id} className="boutton-suprimer-un-message" onClick={this.deleteMessage}> X </button> : console.log('')}
                 </div>
               ))}
             </div>
@@ -187,7 +188,7 @@ export default class Chat extends Component {
                     onChange={this.handleInputChange}
                     required
                     />
-                    <input className="submit" type="submit" value="Submit"   onClick={this.onSubmit}/>
+                    <input className="submit" type="submit" value="Submit" onClick={this.onSubmit}/>
                     </div>
                 </div>
             </div>

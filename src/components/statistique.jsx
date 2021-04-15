@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Barregauche from '../barre-gauche.jsx';
 import rockets from '../image/rockets.png'
+import '../style/stastistique.css';
 
 export default class StatWithFriend extends Component {
 

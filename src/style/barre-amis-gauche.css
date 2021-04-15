@@ -14,14 +14,15 @@
 
 
 .friend-list-gauche{
-    width: 50%;
-    height: 40%;
+    width: 80%;
+    height: 80%;
+    margin-top: 20%;
     display: flex;
     flex-direction: column; 
     align-items: center;
     font-size: 1vw;
-    justify-content: center;
-
+    overflow-y: scroll;
+    
 }
 
 .friend-list-gauche-amis{
@@ -44,6 +45,13 @@
 
 .friend-list-gauche-amis:active{
     background-color: #3D3D49;
+}
+
+
+@media only screen and (max-width:500px){
+    .liste-amis-gauche{
+        display: none;
+    }
 }
 
 

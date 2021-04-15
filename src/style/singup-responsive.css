@@ -1,0 +1,75 @@
+@media only screen and (max-width:700px){
+    .body-singup{
+        height: 130vh;
+    }
+
+    .box-centre-singup {
+        flex-direction: column;
+        
+    }
+
+    .box-droite-singup{
+        height: 100%;
+        width: 100%;      
+    }
+
+    .Welcome-back-singup{
+        font-size: 8vw;
+        margin-top: 25%;
+    }
+
+    .Texte-gauche-singup{
+        font-size: 3vw;
+        margin-top: 30%;
+    }
+
+    .boutton-singin-singup{
+        font-size: 4vw;
+        height: 9%;
+        width: 35%;
+        margin-top: 25%;
+    }
+
+    .box-gauche-singup{
+        height: 100%;
+        width: 100%;
+    }
+    
+    .texte-Create-Account-boxgauche-singup{
+        font-size: 8vw;
+        margin-top: 20%;
+    }
+
+    .pseudo-singup{
+        font-size: 4vw;
+        width: 58vw;
+        height: 8vw;
+        margin-top: 15%;
+    }
+
+    .email-singup{
+        font-size: 4vw;
+        width: 58vw;
+        height: 8vw;
+        margin-top: 15%;
+    }
+
+    .password-singup{
+        font-size: 4vw;
+        width: 58vw;
+        height: 8vw;
+        margin-top: 15%;
+    }
+
+    .bouton-singup-gauche-singup{
+        font-size: 5vw;
+        height: 13%;
+        width: 57%;
+        margin-left: 23%;
+        margin-top: 20%;
+    }
+
+    .email-deja-utiliser-singup{
+        font-size: 4vw;
+    }
+}

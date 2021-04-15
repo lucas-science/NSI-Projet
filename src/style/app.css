@@ -5,78 +5,7 @@ html {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.corps-friends-liste {
-    display: flex;
-    background-color: #1E1E22;
-    width: 93%;
-    height: 100vh;
-    margin-left: 7%;
-    display: flex;
-    justify-content: center;
-    flex-direction:column;
-    align-items: center;
-}
 
-
-
-
-.friend-list {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin-bottom: 35%;
-    
-}
-
-.friend {
-    background: #2A2B3C;
-    color: rgb(199, 199, 199);
-    margin-top: 2%;
-    width: 110vh;
-    display: flex;
-    justify-content: center;
-    border-radius: 0.5vw;
-    transition: 0.2s; 
-
-    font-size: 1.7vw;
-    height: 8vh;
-    align-items: center;
-
-}
-
-.friend:hover,
-.friend:active{
-    width: 112vh;
-    height: 8vh;
-    margin-top: 2%;
-    background-color: #3D3D49;
-}
-
-
-.ajouter-amis-friens-liste{
-    margin-left: 77%;
-    padding: 0.5%;
-    background-color: #3D3D49;
-    display: flex;
-    justify-content: center;
-    border-radius: 0.2vw;
-    align-items: center;
-    width: 20%;
-    color: rgb(199, 199, 199);
-}
-
-.ajouter-amis-friens-liste-p1{
-    background-color: #3D3D49;
-    border-style: none;
-    width: 80%;
-}
-
-.ajouter-amis-friens-liste-p2{
-    background-color: #3D3D49;
-    border-style: none;
-    font-size: 1em;
-}
 
 input:focus {outline:none;}
 
@@ -102,6 +31,7 @@ input:focus {outline:none;}
     top: 8%;
     left:30%;
     overflow-y: scroll;
+
 }
 
  
@@ -122,23 +52,22 @@ input:focus {outline:none;}
     align-items: center;
     justify-content: center;
     height: 10vh;
-    width: 100%;
+    width: 90%;
 }
 
 .message-envoye {
     width: 100%;
     height: 90%;
-    margin-top: 3%;
+    margin-top: 0.5%;
     color: rgb(199, 199, 199);
     transition: 0.3s;
+    padding-top: 1.5px ;
+    padding-bottom: 1.5px;
 }
 
-.message-envoye:hover{
-    background-color: #3D3D49;
-}
 
 .author{
-    margin-left: 10%;
+    margin-left: 8%;
     font-size: 1.3vw;
     color: grey;
     margin-bottom: -2%;
@@ -146,7 +75,8 @@ input:focus {outline:none;}
 }
 
 .textemessageP{
-    margin-left: 10%;
+    margin-left: 8%;
+    width: 120vh;
     font-size: 1.5vw;
     color: rgb(199, 199, 199);
 }
@@ -196,71 +126,32 @@ input:focus {outline:none;}
     margin-left: 3%;
 }
 
-/*statistique*/
-
-.statistique-body{
-    background-color: #1E1E22;
-    width: 93%;
-    height: 100vh;
-    margin-left:7%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.boutton-suprimer-un-message{
+    font-size: 1.5vw;
+    background-color: transparent;
+    border-style: none;
+    color: #828282;
+    display: none;
+    margin-left: 93%;
 }
 
-.classement-stat{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 50%;
+.boutton-suprimer-un-message:hover{
+    cursor: pointer;
 }
 
-.casse-classement-stat{
-    font-size: 1.7vw;
-    background: #2A2B3C;
-    color: rgb(199, 199, 199);
-    margin-top: 2%;
-    width: 105vh;
-    height: 7vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 0.5vw;
-    transition: 0.4s; 
+.message-envoye:hover{
+    background-color: #3D3D42;
+    cursor: pointer;
 }
 
-.casse-classement-stat:hover,
-.casse-classement-stat:active{
-    width: 111vh;
-    background-color: #3D3D49;
+.message-envoye:hover > .boutton-suprimer-un-message{  
+    display: block;
 }
 
-
-
-.barre-du-haut-stat{
-    position: fixed;
-    top: 0%;
-    background-color: #24282D;
-    height:8%;
-    width: 93%;
-    display: flex;
-    align-items: center;
+.boutton-suprimer-un-message:focus{
+    outline: none; 
 }
 
-.texte-barre-du-haut-stat{
-    font-size: 2vw;
-    margin-left: 3%;
-    color: rgb(199, 199, 199);
-}
-
-.logo-rockets-calssement-stat{
-    width: 17%;
-}
-
-.logo-rockets-calssement-stat-haut{
-    width: 4%;
-}
 
 
 
