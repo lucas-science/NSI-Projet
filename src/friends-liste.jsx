@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Router, Link, Switch } from "react-router-dom"
-import './style/app.css';
 import Chat from './components/chat';
 import { withRouter } from "react-router-dom";
 import Barregauche from './barre-gauche.jsx';
 import StatWithFriend from './components/statistique'
-
+import './style/friend-liste.css';
+import './style/friend-liste-responsive.css';
 
 
 export default class friendsliste extends Component {
@@ -102,7 +102,7 @@ export default class friendsliste extends Component {
                   required
                   />
                   <input className="ajouter-amis-friens-liste-p2" type="submit" value="+"/>
-                  <p>{message}</p>
+                  <p className="message-erreur-ajt-amis">{message}</p>
               </form>
             </div>
           <div className="friend-list">

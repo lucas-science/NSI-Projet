@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import Chat from './components/chat';
 import { Link } from 'react-router-dom';
 import './style/app.css';
+import './style/app-responsive.css';
 import Barregauche from './barre-gauche.jsx';
 import Barreamisgauche from './barre-amis-gauche';
 

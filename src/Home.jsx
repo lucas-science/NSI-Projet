@@ -191,7 +191,7 @@ function Home() {
                     <a className="menu__link " href="#page8" data-hover="Lucas ">CV Lucas</a>
                 </div>
                 <div className="matthieu ">
-                    <img classNameName="image-matthieu " src={imgMatthieu} alt="image profil Matthieu "/>
+                    <img className="image-matthieu" src={imgMatthieu} alt="image profil Matthieu "/>
                     <a className="menu__link " href="#page9 " data-hover="Matthieu">CV Matthieu</a>
                 </div>
             </div>

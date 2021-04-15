@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import BarreGauche from '../barre-gauche'
+import '../style/paramètre.css';
+import '../style/paramètre-responsive.css';
 
 export default class parametre extends Component {
 
@@ -52,8 +54,13 @@ export default class parametre extends Component {
         return(
             <div>
                 <BarreGauche/>
-        <form onSubmit={this.onSubmit}>
-                    <input
+                <div className="paramètre-body">
+                <div className="barre-du-haut-paramètre">
+                  <p className="texte-barre-du-haut-paramètre"> Changer ici votre mots de passe : </p>
+              </div>
+              <div >
+        <form className="changer-pseudo" onSubmit={this.onSubmit}>
+                    <input className="entrer-nouveau-pseudo"
                       type="text"
                       name="newName"
                       placeholder="Entrer le nouveau pseudo voulu"
@@ -61,9 +68,11 @@ export default class parametre extends Component {
                       onChange={this.handleInputChange}
                       required
                     />
-                    <input type="submit" value="Submit"/>
+                    <input className="valider-nouveau-pseudo" type="submit" value="Valider"/>
                   </form>
                   <p>{this.state.message}</p>
+                  </div>
+                  </div>
             </div>
         );
     }

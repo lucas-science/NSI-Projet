@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { BrowserRouter, Route, Router, Link, Switch } from "react-router-dom"
 import './style/singup.css';
+import './style/singup-responsive.css';
 
 export default class signup extends Component {
     // création des states suivant
@@ -88,7 +89,7 @@ export default class signup extends Component {
           <br></br>
           <input className="bouton-singup-gauche-singup" type="submit" value="SING UP"/>
         </form>
-        <p>{this.state.message}</p>
+        <p className="email-deja-utiliser-singup">{this.state.message}</p>
         </div>
         <div className="box-droite-singup">
           <p className="Welcome-back-singup">Welcome back </p>

@@ -117,6 +117,7 @@
     border-style: none;
     color: white;
     margin-left: 29%;
+    text-indent: 0px;
 }
 
 .bouton-singup-gauche-singup:active{
@@ -125,6 +126,12 @@
 
 .bouton-singup-gauche-singup:hover{
     cursor: pointer;
+}
+
+.email-deja-utiliser-singup{
+    color: red;
+    margin-top: 13%;
+    font-size: 1.8vw;
 }
 
 

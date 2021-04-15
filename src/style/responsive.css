@@ -6,6 +6,14 @@
                     .nav-barre {
                         height: 5%;
                     }
+
+                    .bouton-parti{
+                        margin-right: 20%;
+                        width: 80%;
+                        height: 100%;
+                        font-size: 4vw;
+                    }
+
                     /*Home*/
                     .home-gauche {
                         width: 100%;

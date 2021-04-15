@@ -1,0 +1,101 @@
+@media only screen and (max-width:500px){
+    .corps{
+        width: 100%;
+        left:0%;
+
+    }
+
+    .barre-du-haut-amis{
+        font-size: 6vw;
+        height: 10vh;
+    }
+
+    .barre-du-haut-amis-texte{
+        margin-left: 6%;
+    }
+    
+    .colone-droite {
+        position: fixed;
+        width: 100%;
+        height: 72vh;
+        top: 10vh;
+        left:0%;
+        overflow-y: scroll;
+    }
+
+    .message-envoye {
+    width: 100%;
+    height: 10vh;
+    margin-top: 0.5%;
+    color: rgb(199, 199, 199);
+    transition: 0.3s;
+    padding-top: 1.5px ;
+    padding-bottom: 1.5px;
+}
+
+.author{
+    margin-left: 8%;
+    font-size: 5vw;
+    color: grey;
+    margin-bottom: -5%;
+
+}
+
+.textemessageP{
+    margin-left: 8%;
+    font-size: 5.7vw;
+    width: 40vh;
+    color: rgb(199, 199, 199);
+}
+
+    .forme-message {
+        margin-top: 1%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 10vh;
+        width: 90%;
+    }
+
+
+    .message {
+        width: 100%;
+        height: 15%;
+        display: flex;
+        position: fixed;
+        bottom: 0%;
+        align-items: center;
+        justify-content: center;
+        margin-left: 0%;
+        background-color: #3D3D49;
+        border-radius: 23px;
+        
+    }
+
+    .submit{
+        margin-left: 0%;
+        height: 80%;
+        font-size:  5vw;
+        margin-bottom: 27%;
+        background-color: transparent;
+    }
+
+    .type-your-message{
+        margin-right: 20%;
+        height: 80%;
+        width: 90vh;
+        margin-left: 1%;
+        font-size: 5vw;
+        margin-bottom: 25%;    
+    }
+
+    .boutton-suprimer-un-message{
+        font-size: 5vw;
+        background-color: transparent;
+        border-style: none;
+        color: #828282;
+        display: none;
+        margin-left: 91%;
+        margin-top: -19%;
+    }
+}

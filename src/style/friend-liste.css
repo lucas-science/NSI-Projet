@@ -1,0 +1,86 @@
+.corps-friends-liste {
+    display: flex;
+    background-color: #1E1E22;
+    width: 93%;
+    height: 100vh;
+    margin-left: 7%;
+    display: flex;
+    justify-content: center;
+    flex-direction:column;
+    align-items: center;
+}
+
+
+
+.friend-list {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    margin-bottom: 20%;
+    height: 50vh;
+    overflow-y: scroll;
+    
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+}
+
+.friend {
+    background: #2A2B3C;
+    color: rgb(199, 199, 199);
+    margin-top: 2%;
+    width: 110vh;
+    display: flex;
+    justify-content: center;
+    border-radius: 0.5vw;
+    transition: 0.2s; 
+
+    font-size: 1.7vw;
+    height: 8vh;
+    align-items: center;
+
+}
+
+.friend:hover,
+.friend:active{
+    width: 112vh;
+    height: 8vh;
+    margin-top: 2%;
+    background-color: #3D3D49;
+}
+
+
+.ajouter-amis-friens-liste{
+    margin-left: 77%;
+    padding: 0.5%;
+    background-color: #3D3D49;
+    display: flex;
+    justify-content: center;
+    border-radius: 0.2vw;
+    align-items: center;
+    width: 20%;
+    color: rgb(199, 199, 199);
+}
+
+.ajouter-amis-friens-liste-p1{
+    background-color: #3D3D49;
+    border-style: none;
+    width: 80%;
+}
+
+.ajouter-amis-friens-liste-p2{
+    background-color: #3D3D49;
+    border-style: none;
+    font-size: 1em;
+}
+
+.message-erreur-ajt-amis{
+    color: red;
+    width: 70vh;
+    margin-left: -20% ;
+    position: fixed;
+
+}
+
+input:focus {outline:none;}

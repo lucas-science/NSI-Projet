@@ -1,0 +1,116 @@
+@media only screen and (max-width:700px) {
+
+    .body-login{
+        height: 130vh;
+    }
+
+    .box-centre-login {
+        flex-direction: column;
+        
+    }
+
+    .box-gauche-login{
+        height: 100%;
+        width: 100%;      
+    }
+
+    .Hey-login{
+        font-size: 8vw;
+    }
+
+    .Texte-gauche-login{
+        font-size: 3.5vw;
+        margin-top: 20%;
+    }
+
+    .boutton-singin-login{
+        font-size: 4vw;
+        height: 9%;
+        width: 35%;
+    }
+
+    .box-droite-login{
+        height: 100%;
+        width: 100%;       
+    }
+
+    .texte-login-boxdroite-login{
+        font-size: 8vw;
+        margin-top: 40%;
+    }
+
+    .email-login{
+        font-size: 4vw;
+        width: 50vw;
+        height: 8vw;
+        margin-top: 15%;
+    }
+
+    .password-login{
+        font-size: 4vw;
+        width: 50vw;
+        height: 8vw;
+        margin-top: 15%;
+    }
+
+    .bouton-login-droite-login{
+        font-size: 5vw;
+        height: 13%;
+        width: 57%;
+        margin-left: 23%;
+        margin-top: 20%;
+    }
+
+    .incorecte-mdp-login{
+        font-size: 4vw;
+    }
+}
+
+@media only screen and (max-width:1050px) and (min-width:700px) {
+    
+
+
+    .Hey-login{
+        font-size: 4vw;
+    }
+
+    .Texte-gauche-login{
+        font-size: 1.8vw;
+        margin-top: 25%;
+    }
+
+    .boutton-singin-login{
+        font-size: 2vw;
+        height: 9%;
+        width: 35%;
+        margin-top: 30%;
+    }
+
+
+    .texte-login-boxdroite-login{
+        font-size: 4vw;
+        margin-top: 25%;
+    }
+
+    .email-login{
+
+        height: 4vw;
+        margin-top: 20%;
+    }
+
+    .password-login{
+        height: 4vw;
+        margin-top: 15%;
+    }
+
+    .bouton-login-droite-login{
+        font-size: 2.5vw;
+        height: 13%;
+        width: 50%;
+        margin-left: 23%;
+        margin-top: 27%;
+    }
+
+
+
+}

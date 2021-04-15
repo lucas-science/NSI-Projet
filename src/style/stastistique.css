@@ -1,0 +1,64 @@
+.statistique-body{
+    background-color: #1E1E22;
+    width: 93%;
+    height: 100vh;
+    margin-left:7%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.classement-stat{
+    display: flex;   
+    align-items: center;
+    flex-direction: column;
+    width: 90%;
+    height: 60%;  
+    overflow-y: scroll;
+}
+
+.casse-classement-stat{
+    font-size: 1.7vw;
+    background: #2A2B3C;
+    color: rgb(199, 199, 199);
+    margin-top: 1%;
+    width: 105vh;
+    height: 7vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.5vw;
+    transition: 0.4s; 
+}
+
+.casse-classement-stat:hover,
+.casse-classement-stat:active{
+    width: 111vh;
+    background-color: #3D3D49;
+}
+
+
+
+.barre-du-haut-stat{
+    position: fixed;
+    top: 0%;
+    background-color: #24282D;
+    height:8%;
+    width: 93%;
+    display: flex;
+    align-items: center;
+}
+
+.texte-barre-du-haut-stat{
+    font-size: 2vw;
+    margin-left: 3%;
+    color: rgb(199, 199, 199);
+}
+
+.logo-rockets-calssement-stat{
+    width: 9%;
+}
+
+.logo-rockets-calssement-stat-haut{
+    width: 4%;
+}

@@ -7,7 +7,7 @@ import users from './image/user.png'
 import rouage from './image/settings.png'
 import logout from './image/logout.png'
 import rockets from './image/rockets.png'
-
+import './style/barre-gauche-responsive.css';
 
 export default class barregauche extends Component {
 
@@ -48,7 +48,7 @@ export default class barregauche extends Component {
                             <img  className="logo-users"src={users} alt="amis"/>
                         </Link>
                         <Link to='/app/statistique'>
-                            <img  className="logo-rockets"src={rockets} alt="amis"/>
+                            <img  className="logo-rockets"src={rockets} alt="statistique"/>
                         </Link>
                         <Link to='/app/parametre'>
                             <img   className="logo-rouage" src={rouage} alt="paramétres"/>
@@ -64,3 +64,4 @@ export default class barregauche extends Component {
         );
     }
 }
+

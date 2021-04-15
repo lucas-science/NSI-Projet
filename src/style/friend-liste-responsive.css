@@ -1,0 +1,52 @@
+@media only screen and (max-width:500px){
+
+    .corps-friends-liste {
+        display: flex;
+        background-color: #1E1E22;
+        width: 100%;
+        height: 100vh;
+        margin-left: 0%;
+        display: flex;
+        justify-content: center;
+        flex-direction:column;
+        align-items: center;
+    }
+
+    .friend {
+        
+        width: 30vh;
+        display: flex;
+        justify-content: center;
+        font-size: 4.5vw;
+        height: 6vh;
+        align-items: center;       
+    }
+
+    .ajouter-amis-friens-liste{
+        margin-left: 39%;
+        padding: 0.5%;
+        background-color: #3D3D49;
+
+
+        width: 60%;
+
+    }
+    
+
+    .friend:hover,
+.friend:active{
+    width: 30vh;
+    height: 6vh;
+}
+
+.message-erreur-ajt-amis{
+    color: red;
+    width: 70vh;
+    margin-left: 60% ;
+    margin-bottom: 25%;
+    position: fixed;
+
+}
+    
+
+}

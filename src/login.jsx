@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { BrowserRouter, Route, Router, Link, Switch } from "react-router-dom"
 import './style/login.css';
-
+import './style/login-responsive.css';
 
 export default class login extends Component {
       // création des states suivant
@@ -44,7 +44,7 @@ export default class login extends Component {
           this.props.history.push('/app/friendlist');
         }if (res.status === 401){
           // si erreur code est 401, renvoyer ce message
-          this.setState({message:'Mot de passee incorrecte'});
+          this.setState({ message:'Mot de passee incorrecte'});
         } 
         else {
           // sinon, renvoyer ce message
@@ -85,7 +85,7 @@ export default class login extends Component {
                       <br></br>
                       <input className="bouton-login-droite-login" type="submit" value="Login"/>
                     </form>
-                    <p>{this.state.message}</p>
+                    <p className="incorecte-mdp-login">{this.state.message}</p>
                     </div>
                     </div>       
             </div>
