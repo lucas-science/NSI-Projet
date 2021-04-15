@@ -56,7 +56,6 @@ exports.signup = (req, res, next) => {
             })
             // renvois éventuelles érreurs
             .catch(error => res.status(400).json({ message: "Nom du'ilisateur ou mot de passe ou Pseudo déjà utilisé" }));
-
     });
 }
 
