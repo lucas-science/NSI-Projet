@@ -1,4 +1,5 @@
 const User = require('../models/user');
+const Groupe = require('../models/groupe')
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
@@ -15,22 +16,47 @@ exports.signup = (req, res, next) => {
             pseudo: pseudo,
             email: email,
             mdp: hash,
-            //test
-            /*friends: [{
-                user_id: "test",
-                _pseudo: "test"
-            }]*/
+            friends: {
+                _id: "6076e163d47a913b0c2b0b0f",
+                _pseudo: "Equipe iChat"
+            }
         });
+
         user.save()
             // crétion de la session qui exprire dans 1h
             .then(() => {
                 const token = jwt.sign({ userId: user._id }, secret, {
                     expiresIn: '1h'
                 });
-                return res.cookie('token', token, { httpOnly: true }).status(200).json({ message: 'utilisateur créer' });
+                User.updateOne({ _id: "6076e163d47a913b0c2b0b0f" }, {
+                    $push: {
+                        friends: {
+                            _id: user._id,
+                            _pseudo: req.body.pseudo
+                        }
+                    }
+                }, function(err, docs) {
+                    if (err) {
+                        console.log(err)
+                    } else {
+                        const groupe = new Groupe({
+                            membres: [
+                                { _id: user._id },
+                                { _id: "6076e163d47a913b0c2b0b0f" }
+                            ],
+                            message: [
+                                { text: "Bienvenue dans iChat, vous pouvez désormais ajoutez des amis dans la section dédiée et vous partagez vos plus belles histoires !", author: "Equipe iChat" }
+                            ]
+                        })
+                        groupe.save()
+                        return res.cookie('token', token, { httpOnly: true }).status(200).json({ message: 'utilisateur créer' });
+                    }
+                })
+
             })
             // renvois éventuelles érreurs
             .catch(error => res.status(400).json({ message: "Nom du'ilisateur ou mot de passe ou Pseudo déjà utilisé" }));
+
     });
 }
 
