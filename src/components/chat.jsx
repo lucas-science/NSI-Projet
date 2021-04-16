@@ -172,7 +172,6 @@ export default class Chat extends Component {
             <div className="chat">
               {this.state.groupetext.map((mess)=>(
                 <div className="message-envoye">
-                  
                   <p className="author">{mess.author}</p>
                   <p className="textemessageP">{mess.text}</p>
                   { this.props.nom == mess.author ? <button value={mess._id} className="boutton-suprimer-un-message" onClick={this.deleteMessage}> X </button> : console.log('')}
