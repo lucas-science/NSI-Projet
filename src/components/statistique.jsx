@@ -15,7 +15,7 @@ export default class StatWithFriend extends Component {
     };
   }
     componentDidMount(){
-        fetch('http://localhost:4000/app/statByUser', {
+        fetch('https://ichatt.herokuapp.com/app/statByUser', {
           method: 'GET',
           // credentials : include permet d'intégrer les cookie avec la requête
           credentials: 'include', 
@@ -29,7 +29,7 @@ export default class StatWithFriend extends Component {
           this.setState({statistique_amis:response})
           console.log("statistique : ",this.state.statistique_amis)
         })
-        fetch('http://localhost:4000/app/friendlist', {
+        fetch('https://ichatt.herokuapp.com/app/friendlist', {
           method: 'GET',
           // credentials : include permet d'intégrer les cookie avec la requête
           credentials: 'include', 

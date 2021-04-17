@@ -27,7 +27,7 @@ export default class signup extends Component {
       event.preventDefault();
       console.log("state signup : ",this.state);
 
-      fetch('http://localhost:4000/authentification/signup', {
+      fetch('https://ichatt.herokuapp.com/authentification/signup', {
         method: 'POST',
         // credentials : include permet d'intégrer les cookie avec la requête
         credentials: 'include',

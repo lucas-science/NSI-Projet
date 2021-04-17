@@ -26,7 +26,7 @@ export default class login extends Component {
     onSubmit = (event) => {
       event.preventDefault();
       console.log("state login : ",this.state)
-      fetch('http://localhost:4000/authentification/signin', {
+      fetch('https://ichatt.herokuapp.com/authentification/signin', {
         method: 'POST',
         // credentials : include permet d'intégrer les cookie avec la requête
         credentials: 'include', 

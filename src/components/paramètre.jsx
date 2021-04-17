@@ -26,7 +26,7 @@ export default class parametre extends Component {
   onSubmit = async (event)=>{
       event.preventDefault();
       console.log(this.state)
-      const test = await fetch('http://localhost:4000/app/changeName', {
+      const test = await fetch('https://ichatt.herokuapp.com/app/changeName', {
           method: 'POST',
           // credentials : include permet d'intégrer les cookie avec la requête
           credentials: 'include', 

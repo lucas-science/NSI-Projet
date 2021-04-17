@@ -14,7 +14,7 @@ export default function withAuth(ComponentToProtect) {
 
     // fait une requête POST au chemin "http://localhost:4000/auth" pour vérifier si les cookie sont valide
     componentDidMount() {
-      fetch('http://localhost:4000/auth',{
+      fetch('https://ichatt.herokuapp.com/auth',{
         // credentials : include permet d'intégrer les cookie avec la requête
         credentials: 'include', 
         method: 'POST'

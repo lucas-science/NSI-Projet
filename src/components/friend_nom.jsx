@@ -10,7 +10,7 @@ export default class friend_nom extends Component {
         };
       }
     componentDidMount(){
-        fetch('http://localhost:4000/app/getFriendName', {
+        fetch('https://ichatt.herokuapp.com/app/getFriendName', {
           method: 'POST',
           // credentials : include permet d'intégrer les cookie avec la requête
           credentials: 'include', 
@@ -30,7 +30,7 @@ export default class friend_nom extends Component {
     }
     componentDidUpdate(){
         if(this.state.id != this.props.id){
-            fetch('http://localhost:4000/app/getFriendName', {
+            fetch('https://ichatt.herokuapp.com/app/getFriendName', {
                 method: 'POST',
                 // credentials : include permet d'intégrer les cookie avec la requête
                 credentials: 'include', 

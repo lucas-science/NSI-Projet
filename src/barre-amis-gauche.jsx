@@ -17,7 +17,7 @@ export default class barregaucheamis extends Component {
 
 
     componentDidMount(){
-          fetch('http://localhost:4000/app/friendlist', {
+          fetch('https://ichatt.herokuapp.com/app/friendlist', {
             method: 'GET',
             // credentials : include permet d'intégrer les cookie avec la requête
             credentials: 'include', 

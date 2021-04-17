@@ -5,7 +5,7 @@ import FriendNom from './friend_nom'
 
 
 
-const socket = io('http://localhost:4000');
+const socket = io('https://ichatt.herokuapp.com/');
 export default class Chat extends Component {
   // création du state "message"
     constructor(props) {
@@ -35,7 +35,7 @@ export default class Chat extends Component {
       componentDidMount(){
         this.setState({friendid:this.props.valeur})
         this.setState({user_nom:this.props.nom})
-        fetch('http://localhost:4000/app/getgroupechatlist', {
+        fetch('https://ichatt.herokuapp.com/app/getgroupechatlist', {
           method: 'POST',
           // credentials : include permet d'intégrer les cookie avec la requête
           credentials: 'include', 
@@ -60,7 +60,7 @@ export default class Chat extends Component {
       componentDidUpdate(){
         if(this.state.friendid !== this.props.valeur){
           this.setState({friendid:this.props.valeur})
-          fetch('http://localhost:4000/app/getgroupechatlist', {
+          fetch('https://ichatt.herokuapp.com/app/getgroupechatlist', {
             method: 'POST',
             credentials: 'include', 
             body: JSON.stringify({

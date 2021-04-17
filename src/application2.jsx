@@ -36,7 +36,7 @@ export default class Application2 extends Component {
         event.preventDefault();
         console.log("state envois demande amis : ",this.state)
         // requête POST
-        fetch('http://localhost:4000/app/newfriend', {
+        fetch('https://ichatt.herokuapp.com/app/newfriend', {
           method: 'POST',
           // credentials : include permet d'intégrer les cookie avec la requête
           credentials: 'include', 
@@ -60,7 +60,7 @@ export default class Application2 extends Component {
         })
       }
       componentDidMount(){
-        fetch('http://localhost:4000/app/friendlist', {
+        fetch('https://ichatt.herokuapp.com/app/friendlist', {
           method: 'GET',
           // credentials : include permet d'intégrer les cookie avec la requête
           credentials: 'include',
