@@ -29,7 +29,8 @@ export default class login extends Component {
       fetch('https://ichatt.herokuapp.com/authentification/signin', {
         method: 'POST',
         // credentials : include permet d'intégrer les cookie avec la requête
-        credentials: 'include', 
+        withCredentials: true, 
+        credentials: 'include',
         body: JSON.stringify({
           email:this.state.email,
           mdp:this.state.mdp
