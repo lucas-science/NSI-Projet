@@ -5,7 +5,7 @@ import FriendNom from './friend_nom'
 
 
 
-const socket = io('https://ichatt.herokuapp.com/');
+const socket = io('https://ichatt.herokuapp.com');
 export default class Chat extends Component {
   // création du state "message"
     constructor(props) {
