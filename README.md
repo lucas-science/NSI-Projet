@@ -4,16 +4,22 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
-Packages :
+#### After you have clone the project, in the project directory you can run : 
 
-```npm i express axios bcrypt body-parser cookie-pareser cors http jsonwebtoken mongoose mongoose-unique-validator nodemon```
+```npm i ```   
 
-Pour lancer le côté serveur:
+As that, you can install all packages used in the project.
 
-### `npm run watch`
+#### To launch the project : 
 
-In the project directory, you can run:
+In the project directory, you can run:  
 
-### `npm start`
+To start the nodejs server :
+
+ `npm run watch`
+
+To start the react app :
+
+ `npm start`
 
 
