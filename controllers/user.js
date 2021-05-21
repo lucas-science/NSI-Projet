@@ -1,12 +1,14 @@
+// import les models de la base de donnée
 const User = require('../models/user');
-const Groupe = require('../models/groupe')
+const Groupe = require('../models/groupe');
+// importation des packages
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 
 exports.signup = (req, res, next) => {
-    console.log(req.body)
-        // récupérer les données suivantes
+    console.log(req.body);
+    // récupérer les données suivantes
     let email = req.body.email;
     let pseudo = req.body.pseudo;
     let mdp = req.body.mdp;
@@ -21,13 +23,14 @@ exports.signup = (req, res, next) => {
                 _pseudo: "Equipe iChat"
             }
         });
-
+        // ajout utilisateur dans la base de donnée
         user.save()
             // crétion de la session qui exprire dans 1h
             .then(() => {
                 const token = jwt.sign({ userId: user._id }, secret, {
                     expiresIn: '1h'
                 });
+                // ajout du première ami "Equipe iChat"
                 User.updateOne({ _id: "6076e163d47a913b0c2b0b0f" }, {
                     $push: {
                         friends: {
@@ -39,6 +42,7 @@ exports.signup = (req, res, next) => {
                     if (err) {
                         console.log(err)
                     } else {
+                        // création du groupe avec "Equipe iChat et le nouveau utilisateur pour y stocker les messages et les membres"
                         const groupe = new Groupe({
                             membres: [
                                 { _id: user._id },
@@ -48,8 +52,8 @@ exports.signup = (req, res, next) => {
                                 { text: "Bienvenue dans iChat, vous pouvez désormais ajoutez des amis dans la section dédiée et vous partagez vos plus belles histoires !", author: "Equipe iChat" }
                             ]
                         })
-                        groupe.save()
-                        return res.cookie('token', token, { httpOnly: true }).status(200).json({ message: 'utilisateur créer' });
+                        groupe.save() // enregistre le groupe dans la DB
+                        return res.cookie('token', token, { httpOnly: true }).status(200).json({ message: 'utilisateur créer' }); // renvois des cookies de sesssion
                     }
                 })
 
@@ -63,8 +67,8 @@ const secret = "clef-secret"
 
 
 exports.signin = (req, res, next) => {
-    console.log(req.body)
-        // cherche un utilisateur avec l'email voulue
+    console.log(req.body);
+    // cherche un utilisateur avec l'email voulue
     User.findOne({ email: req.body.email }, function(err, user) {
         if (err) {
             console.error(err);
@@ -80,7 +84,7 @@ exports.signin = (req, res, next) => {
                 });
             console.log('here')
         } else {
-            // si utilisateur trouvé, comparé les deux mot de passe
+            // si utilisateur trouvé, comparer les deux mot de passe
             bcrypt.compare(req.body.mdp, user.mdp, function(err, result) {
                 if (err) {
                     console.error(err);
