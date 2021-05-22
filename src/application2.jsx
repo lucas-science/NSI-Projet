@@ -11,7 +11,7 @@ import Barreamisgauche from './barre-amis-gauche';
 export default class Application2 extends Component {
     
   
-      // création du State "friend"
+      // création des states
       constructor(props) {
         super(props)
         this.state = {
@@ -31,15 +31,14 @@ export default class Application2 extends Component {
         });
       }
 
-      // fonction permettant de faire une requête POST au serveur et d'envoyer les données
+      // fonction permettant de faire une requête POST au serveur et d'envoyer les données pour ajouter un amis
     onSubmit = (event) => {
         event.preventDefault();
         console.log("state envois demande amis : ",this.state)
         // requête POST
         fetch('https://ichatt.herokuapp.com/app/newfriend', {
           method: 'POST',
-          // credentials : include permet d'intégrer les cookie avec la requête
-          credentials: 'include', 
+          credentials: 'include', // credentials : include permet d'intégrer les cookie avec la requête
           body: JSON.stringify({
             new_friend: this.state.friend
           }),
@@ -59,6 +58,8 @@ export default class Application2 extends Component {
           }
         })
       }
+
+      // fonction permettant de faire une requête GET au serveur et d'envoyer les données pour récupérer la liste d'ami de l'utilisateur
       componentDidMount(){
         fetch('https://ichatt.herokuapp.com/app/friendlist', {
           method: 'GET',
@@ -70,13 +71,10 @@ export default class Application2 extends Component {
           }
         })
         .then(response => response.json())
-        .then(response => {
-          //console.log(response)
-          this.setState({amislist:response.friends})
-          this.setState({user_nom:response.pseudo})
-          this.setState({firstFriend:response.firstFriend})
-          //let test = this.state.amislist
-
+        .then(response => { // récupère la reponsse du serveur
+          this.setState({amislist:response.friends}) // stoque la list d'ami dans le state "amislist"
+          this.setState({user_nom:response.pseudo}) // stoque le pseudo du user dans le state "user_nom"
+          this.setState({firstFriend:response.firstFriend}) // stoque le première ami du user dans le state "firstFriend"
         })
       }
 
@@ -86,10 +84,10 @@ export default class Application2 extends Component {
       return (
       <div className="corps"> 
         <div className="colone-gauche">
-          <Barregauche firstFriend={this.state.firstFriend}/>
-          <Barreamisgauche/>
+          <Barregauche firstFriend={this.state.firstFriend}/> {/* Barre ne navigation */}
+          <Barreamisgauche/> {/*Menu où il y a les différents amis */}
       </div>
-      <Chat valeur={id} nom={this.state.user_nom}/>
+      <Chat valeur={id} nom={this.state.user_nom}/> {/*Le chate */}
     </div>
       ); 
     }

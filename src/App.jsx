@@ -21,7 +21,7 @@ class App extends Component {
             <Route path="/" exact component={Home}/>
             <Route path="/signup" component={Signup} />
             <Route path="/login" component={Login} />
-            {/*withAuth permet de renvoyer le composant "Application" si la vérification des cookies est validé par le server*/}
+            {/*withAuth permet de renvoyer le composant voulu si la vérification des cookies est validé par le server*/}
             <Route path="/app/friendlist" component={withAuth(Friendsliste)} />
             <Route path="/app2/:id" component={withAuth(Application2)}/>
             <Route path="/app/parametre" component={withAuth(Parametre)}/>

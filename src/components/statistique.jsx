@@ -5,7 +5,7 @@ import rockets from '../image/rockets.png'
 import '../style/stastistique.css';
 
 export default class StatWithFriend extends Component {
-
+// création des states
   constructor(props) {
     super(props)
     this.state = {
@@ -15,7 +15,7 @@ export default class StatWithFriend extends Component {
     };
   }
     componentDidMount(){
-        fetch('https://ichatt.herokuapp.com/app/statByUser', {
+        fetch('https://ichatt.herokuapp.com/app/statByUser', { // fonction permettant de faire une requête GET au serveur et d'envoyer les données pour récupérer les statistique de l'utilisateur
           method: 'GET',
           // credentials : include permet d'intégrer les cookie avec la requête
           credentials: 'include', 
@@ -26,10 +26,10 @@ export default class StatWithFriend extends Component {
         })
         .then(response => response.json())
         .then(response => { 
-          this.setState({statistique_amis:response})
+          this.setState({statistique_amis:response}) // stoque les statistiques
           console.log("statistique : ",this.state.statistique_amis)
         })
-        fetch('https://ichatt.herokuapp.com/app/friendlist', {
+        fetch('https://ichatt.herokuapp.com/app/friendlist', { // fonction permettant de faire une requête GET au serveur et d'envoyer les données pour récupérer la liste d'amis
           method: 'GET',
           // credentials : include permet d'intégrer les cookie avec la requête
           credentials: 'include', 
@@ -41,8 +41,8 @@ export default class StatWithFriend extends Component {
         .then(response => response.json())
         .then(response => {
           console.log(response)
-          this.setState({amislist:response.data})
-          this.setState({FirstFriend:response.firstFriend})
+          this.setState({amislist:response.data}) // stoque la réponsse
+          this.setState({FirstFriend:response.firstFriend}) // stoque le première ami
         })
       }
 
@@ -52,13 +52,13 @@ export default class StatWithFriend extends Component {
       const {statistique_amis} = this.state
         return(
           <div>
-            <Barregauche firstFriend={this.state.FirstFriend}/>
+            <Barregauche firstFriend={this.state.FirstFriend}/> {/* Fait le rendu du composant "Barre gauche" */}
             <div className="statistique-body">
               <div className="barre-du-haut-stat">
                 <p className="texte-barre-du-haut-stat">Nombre de message échanger :                   Ichat rockets <img  className="logo-rockets-calssement-stat-haut"src={rockets} alt="amis"/></p>
               </div>
               <div className="classement-stat">
-                {statistique_amis.map((amis)=>(
+                {statistique_amis.map((amis)=>( // map chaque statistique avec chacun des amis de l'utilisateur
                   <div className="casse-classement-stat">
                     <p>{amis.friend_name} : {amis.nbr_message} <img  className="logo-rockets-calssement-stat"src={rockets} alt="amis"/> </p>
                   </div>

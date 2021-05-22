@@ -16,7 +16,7 @@ import { BrowserRouter, Route, Router, Link, Switch } from "react-router-dom"
 import './style/Home.css';
 import './style/responsive.css'
 
-// page de présentation du projet, le style n'est pas a jour
+// page de présentation du projet
 
 function Home() {
   return (

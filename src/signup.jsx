@@ -58,7 +58,7 @@ export default class signup extends Component {
       <div className="body-singup">
         <div className="box-centre-singup">
           <div className="box-gauche-singup">
-          <form onSubmit={this.onSubmit}>
+          <form onSubmit={this.onSubmit}>{/* Le formulaire pour se créer un compte */}
           <h1 className="texte-Create-Account-boxgauche-singup">Create Account</h1>
           <input className="pseudo-singup" 
             type="text"

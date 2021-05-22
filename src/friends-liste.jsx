@@ -29,7 +29,8 @@ export default class friendsliste extends Component {
           [name]: value
         });
       }
-      sleep = (milliseconds) => {
+
+      sleep = (milliseconds) => { // fonction qui permet d'attendre
         return new Promise(resolve => setTimeout(resolve, milliseconds))
       }
       // fonction permettant de faire une requête POST au serveur et d'envoyer les données
@@ -65,7 +66,7 @@ export default class friendsliste extends Component {
       }
       componentDidMount(){
         fetch('https://ichatt.herokuapp.com/app/friendlist', {
-          method: 'GET',
+          method: 'GET', 
           // credentials : include permet d'intégrer les cookie avec la requête
           credentials: 'include', 
           headers: {
@@ -76,8 +77,8 @@ export default class friendsliste extends Component {
         .then(response => response.json())
         .then(response => {
           console.log(response)
-          this.setState({amislist:response.data})
-          this.setState({firstFriend:response.firstFriend})
+          this.setState({amislist:response.data}) // stoque la liste d'ami
+          this.setState({firstFriend:response.firstFriend}) // stoque le premère ami
           console.log("state", this.state.amislist)
         })
       }
@@ -89,9 +90,9 @@ export default class friendsliste extends Component {
       return (
         <div className="corps-friends-liste">
           <div> 
-            <Barregauche firstFriend={this.state.firstFriend}/>
+            <Barregauche firstFriend={this.state.firstFriend}/> {/* fait le rendu du composant "Barregauche" */}
             <div className="add-friends">
-              <form class="ajouter-amis-friens-liste" onSubmit={this.onSubmit}>
+              <form class="ajouter-amis-friens-liste" onSubmit={this.onSubmit}> {/* formulaire pour ajouter l'amis */}
                   <input 
                   className="ajouter-amis-friens-liste-p1"
                   name="friend"
@@ -106,7 +107,7 @@ export default class friendsliste extends Component {
               </form>
             </div>
           <div className="friend-list">
-            {amislist.map((amis)=>(
+            {amislist.map((amis)=>(  // map la liste d'amis et retourne pour chaque amis une boutton redirigeant vers le groupe de discution
               <Link to={"/app2/"+amis.id} >
                   <div className="friend" name={amis.pseudo}>
                       <p>{amis.pseudo}</p>

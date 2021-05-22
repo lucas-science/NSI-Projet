@@ -10,13 +10,14 @@ import rockets from './image/rockets.png'
 import './style/barre-gauche-responsive.css';
 
 export default class barregauche extends Component {
-
+// création des states 
     constructor(props) {
         super(props)
         this.state = {
             firstFriend:""
         };
       }
+    // fonction permettant de faire une requête POST au serveur et d'envoyer les données pour récupérer la liste d'ami de l'utilisateur 
     componentDidMount(){
         fetch('https://ichatt.herokuapp.com/app/friendlist', {
           method: 'GET',
@@ -29,20 +30,20 @@ export default class barregauche extends Component {
         })
         .then(response => response.json())
         .then(response => {
-          this.setState({firstFriend:response.firstFriend})
+          this.setState({firstFriend:response.firstFriend}) // stoque le première amis dans le state "firstFriend"
         })
     }
 
-     render(){
+     render(){ // fait le rendu de la page 
         return(
             <div>
                 <div className="nav-barre-gauche">
                     <div className="profil-users">
                         <img className="profil"  src={profil} alt="photo de profil"/>
                     </div>
-                    <div className="bouton-part ">
-                        <Link to={'/app2/'+this.state.firstFriend}>
-                            <img  className="logo-message" src={envelope} alt="message"/>
+                    <div className="bouton-part "> {/*Lien entre les différents onglets */}
+                        <Link to={'/app2/'+this.state.firstFriend}> {/* renvois vers le groupe de message du première amis */}
+                            <img  className="logo-message" src={envelope} alt="message"/> 
                         </Link>
                         <Link to='/app/friendlist'>
                             <img  className="logo-users"src={users} alt="amis"/>
@@ -56,7 +57,7 @@ export default class barregauche extends Component {
                     </div>
                     <Link to='/'>
                         <div className="deconextion">
-                            <img  onClick={this.OnSubmit} className="logo-deconextion" src={logout} alt="déconextion"/>
+                            <img  onClick={this.OnSubmit} className="logo-deconextion" src={logout} alt="déconextion"/> {/* quitte l'application et fait un retour vers le menu */}
                         </div>
                     </Link>
                 </div>

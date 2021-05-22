@@ -5,7 +5,7 @@ import '../style/paramètre.css';
 import '../style/paramètre-responsive.css';
 
 export default class parametre extends Component {
-
+// création des states
   constructor(props) {
     super(props)
     this.state = {
@@ -13,20 +13,21 @@ export default class parametre extends Component {
         message:""
     };
   }
-
+      // ajout des changement lorsque le texte de l'input change
   handleInputChange = (event) => {
     const { value, name } = event.target;
     this.setState({
       [name]: value
     });
   }
+  // fonction permettant de faire un temps de pause
   sleep = (milliseconds) => {
     return new Promise(resolve => setTimeout(resolve, milliseconds))
   }
-  onSubmit = async (event)=>{
+  onSubmit = async (event)=>{ // lance la fonction lorsque l'utilisateur clique sur le bouton
       event.preventDefault();
       console.log(this.state)
-      const test = await fetch('https://ichatt.herokuapp.com/app/changeName', {
+      const test = await fetch('https://ichatt.herokuapp.com/app/changeName', { // fonction permettant de faire une requête POST au serveur et de changer de nom
           method: 'POST',
           // credentials : include permet d'intégrer les cookie avec la requête
           credentials: 'include', 
@@ -53,13 +54,13 @@ export default class parametre extends Component {
     render(){
         return(
             <div>
-                <BarreGauche/>
+                <BarreGauche/> {/* Fait le rendu du composant "BarreGauche" */}
                 <div className="paramètre-body">
                 <div className="barre-du-haut-paramètre">
                   <p className="texte-barre-du-haut-paramètre"> Changer ici votre mots de passe : </p>
               </div>
               <div >
-        <form className="changer-pseudo" onSubmit={this.onSubmit}>
+        <form className="changer-pseudo" onSubmit={this.onSubmit}> {/* formulaire pour envois la demande de changer de pseudo */}
                     <input className="entrer-nouveau-pseudo"
                       type="text"
                       name="newName"

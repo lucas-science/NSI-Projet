@@ -42,14 +42,14 @@ export default class login extends Component {
       .then(res => {
         if (res.status === 200) {
           // s'il y a aucune erreur, renvoyer vers l'acceuil
-          this.props.history.push('/app/friendlist');
+          this.props.history.push('/app/friendlist'); // regirige l'utilisateur vers l'application en cas de connexion réussie
         }if (res.status === 401){
           // si erreur code est 401, renvoyer ce message
-          this.setState({ message:'Mot de passee incorrecte'});
+          this.setState({ message:'Mot de passee incorrecte'}); // renvois une erreur "mot de passe incorrecte" à l'utilisateur
         } 
         else {
           // sinon, renvoyer ce message
-          this.setState({message:'Mot de passe ou email incorrecte'});
+          this.setState({message:'Mot de passe ou email incorrecte'}); // renvois une erreur "mot de passe ou email incorrecte" à l'utilisateur
         }
       })
     }
@@ -64,7 +64,7 @@ export default class login extends Component {
               <Link className="boutton-singin-login" to="/signup"> SING UP</Link>
             </div>
             <div className="box-droite-login">
-            <form onSubmit={this.onSubmit}>
+            <form onSubmit={this.onSubmit}> {/* formulaire de connexion */}
                       <h1 className="texte-login-boxdroite-login">Login</h1>   
                       <input className="email-login"
                         type="email"
