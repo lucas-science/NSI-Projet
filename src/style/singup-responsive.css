@@ -1,3 +1,5 @@
+/* css responsive pour la page qui sert a s'inscrire*/
+
 @media only screen and (max-width:700px){
     .body-singup{
         height: 130vh;

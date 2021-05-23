@@ -1,0 +1,322 @@
+body,
+html {
+    background-color: #232529;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.nav-barre{
+    position: fixed;
+    width: 7%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction:column;
+    left:0%;
+    top:0%;
+    background-color: #15151a;
+}
+
+.profil-users{
+    width: 100%;
+    display:flex;    
+    align-items: center;
+    flex-direction:column;
+    margin-top: 15%;
+}
+
+.profil{
+    width: 75%;    
+}
+
+.bouton-parti {
+    margin-bottom: 250%;
+    width: 100%;
+    display: flex;
+    flex-direction:column;
+    justify-content: space-around;
+    align-items: center;
+    height: 30%;
+}
+
+.logo-message,
+.logo-users,
+.logo-rouage{   
+    width: 40%;
+    display: flex;
+    align-items: center;
+    padding: 5% 40% 5% 40%;
+    background-color: transparent;
+}
+
+.logo-message:active,
+.logo-users:active,
+.logo-rouage:active,
+.logo-deconextion:active{
+background-color: gray;
+}
+
+
+
+.deconextion{
+    width: 100%;
+    display:flex;
+    align-items: center;
+    flex-direction:column;
+    margin-bottom: 10%;
+}
+.logo-deconextion{
+    width: 35%;
+    display: flex;
+    align-items: center;
+    padding: 10% 40% 10% 40%;
+    background-color: transparent;
+}
+
+
+.liste-amis{
+    position: fixed;
+    width: 25%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction:column;
+    align-items: center;
+    left:7%;
+    top:0%;
+    background-color: #1E1E22;
+}
+.ami{
+    width: 50%;
+    height: 40%;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    font-size: 1.5vw;
+    justify-content: center;
+
+}
+
+.ami-1,
+.ami-2,
+.ami-3,
+.ami-4,
+.ami-5,
+.ami-6,
+.ami-7{
+    margin-bottom: 10%;
+    background: #2A2B3C;
+    border-radius: 0.4vw;
+    width: 150%;
+    height: 13%;
+    padding: 0.1% 1.7% 0.1% 1%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: rgb(199, 199, 199);
+}
+
+.ami-1:active,
+.ami-2:active,
+.ami-3:active,
+.ami-4:active,
+.ami-5:active,
+.ami-6:active,
+.ami-7:active{
+    background-color: #3D3D49;
+}
+
+.img-ami1{
+    width: 11%;
+    height: auto;
+}
+
+.score{
+    margin-left:20% ;
+}
+
+.image-rocket {
+    width: 7%;
+    height: auto;
+}
+
+.new-friends{
+    width: 150%;
+    height: 14%;
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-end;
+    font-size: 1.5vw;
+    justify-content: center;
+}
+
+.ajouter-ami{
+    font-size: 1vw;
+    margin-bottom: 5%;
+    background: #2A2B3C;
+    border-radius: 0.8vw;
+    width: 25%;
+    height: 50%;
+    padding: 0.1% 1% 0.1% 1%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(199, 199, 199);
+}
+
+.ajouter-ami:active{
+    background-color: gray;
+}
+
+.page-message{
+    position: fixed;
+    width: 68%;
+    height: 100%;
+    left:32%;
+}
+
+.barre-info{
+    width: 100%;
+    height: 7%;
+    display: flex;
+    align-items: center;
+
+    background-color: #24282D;
+    
+}
+
+.info{
+    margin-left: 3%;
+    width: 40%;
+    height: 100%;
+    padding: 0.1% 1.7% 0.1% 1%;
+    display: flex;
+    align-items: center;
+    color: rgb(199, 199, 199);
+}
+
+.img-profil-ami-barre-info{
+    width: 10%;
+}
+
+.logo-barre-profil{
+    width: 85%;
+}
+
+.texte-barre-info{
+    width: 15%;
+    font-size: 1.5vw;
+}
+
+.statut{
+    width: 5%;
+}
+
+.point-vert{}
+
+
+
+.message{
+    display: flex;
+    width: 100%;
+    height: 78%;
+    
+}
+
+.message-recu-envoyer{
+    display: flex;
+    width: 80%;
+    margin-left: 7%;
+    height: 90%;
+    margin-top: 3%;
+
+    flex-direction: column; 
+
+    font-size: 1.4vw;
+
+}
+
+
+
+.message1{
+
+    width: 100%;
+    display: flex;
+    align-items: center;
+    color: rgb(199, 199, 199);
+}
+
+.img-messagge{
+    width: 60%;
+}
+
+.box-image{
+    display: fLex;
+    align-items: center;
+    justify-content: center;
+    width: 10%;
+    height: 70%;
+
+}
+
+.box-texte{
+    display: fLex;
+    align-items: center;
+
+    width: 100%;
+    height: 60%;
+    margin-left: 3%;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.ecrire-message{
+    width: 100%;
+    height: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.barre-ecrire-message{
+    background: #3D3D49;
+    border-radius: 1vw;
+    width: 70%;
+    height: 60%;
+    padding: 0.1% 1.7% 0.1% 1%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: rgb(199, 199, 199);
+}
+
+.texte-barre-ecrire-message{
+    width: 75%;
+    display: flex;
+    justify-content: center;
+    font-size:2.2vw ;
+    color: #828282;
+}
+
+.logo-texte-ecrire-message{
+    width: 25%;
+    display: flex;
+    justify-content: flex-end;
+
+}
+
+.logo-fleche{
+    width: 50%;  
+}

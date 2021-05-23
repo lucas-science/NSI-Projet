@@ -1,3 +1,6 @@
+/* css pour la page principale ou l'on recoit/envoye des message */
+
+
 body,
 html {
     margin: 0;
@@ -6,13 +9,7 @@ html {
 }
 
 
-
 input:focus {outline:none;}
-
-
-
-
-
 
 
 .corps{

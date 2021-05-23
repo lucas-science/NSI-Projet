@@ -1,3 +1,5 @@
+/* css responsive pour la barre menu fixe ou l'on change de section*/
+
 @media only screen and (max-width:700px){
     .nav-barre-gauche {
         width: 100vw;
