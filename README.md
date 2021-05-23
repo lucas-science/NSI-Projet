@@ -18,7 +18,7 @@ To start the react app :
 
 ### Overview 
 
-The website url is [here ](https://ichat-g7wmp4ylz-lucas-science.vercel.app/) :rocket:
+The website url is [here ](https://ichat-wine.vercel.app/) :rocket:
 
 ![img](https://media.discordapp.net/attachments/701530343932690522/833320728803409920/unknown.png?width=768&height=370)
 
