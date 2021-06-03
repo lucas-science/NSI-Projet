@@ -32,7 +32,7 @@ app.use(
 );
 
 //connection à mongoDB
-mongoose.connect('mongodb+srv://ichat:LjfNhCj0YwwryZiF@cluster0.uzln9.mongodb.net/<dbname>?retryWrites=true&w=majority', {
+mongoose.connect('<mongoDB>', {
         useCreateIndex: true,
         useNewUrlParser: true,
         useUnifiedTopology: true
